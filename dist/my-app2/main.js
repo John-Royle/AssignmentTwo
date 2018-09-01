@@ -348,7 +348,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n  <li *ngFor=\"let room of rooms\" >\n    {{room}}\n  </li>\n\n<div>Super User</div>\n<div>Create a new user\n<form (submit)=\"createNewUser($event)\">\n  <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameNewUser\" name=\"username\" id=\"usernameNewUser\">\n  <input type=\"password\" placeholder=\"Password\" [(ngModel)]=\"passwordNewUser\" name=\"password\" id=\"passwordNewUser\">\n  <input type=\"text\" placeholder=\"Group\" [(ngModel)]=\"groupNewUser\" name=\"group\" id=\"groupNewUser\">\n  <button type=\"submit\">Submit</button>\n</form>\n</div>\n\n<div>Remove a user\n  <form (submit)=\"removeUser($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"username\" name=\"username\" id=\"usernameRemoveuser\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Make a user a group admin of a group\n  <form (submit)=\"makeUserGroupAdminOfGroup($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"username\" name=\"username\" id=\"usernameMakeGroupAdminOfGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n<div>Make a user a super admin\n  <form (submit)=\"makeUserSuperAdmin($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"username\" name=\"username\" id=\"usernameMakeSuperUser\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Admin User</div>\n<div>Create a new group\n  <form (submit)=\"deleteGroup($event)\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"group\" name=\"groupname\" id=\"groupnameNewGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n<div>Add a exisiting user to group\n  <form (submit)=\"addUserToGroup($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"username\" name=\"username\" id=\"usernameAddUserToGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n<div>Add channel to group\n  <form (submit)=\"addchannelToGroup($event)\">\n    <input type=\"channel\" placeholder=\"Channel\" [(ngModel)]=\"channel\" name=\"channelname\" id=\"channelnameAddChannel\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n<div>Delete a group\n  <form (submit)=\"deleteGroup($event)\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"group\" name=\"groupname\" id=\"groupnameDeleteGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Delete a user from a group\n  <form (submit)=\"deleteUserFromGroup($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"username\" name=\"username\" id=\"usernameDeleteUserFromGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n<div>Delete a user from a channel\n  <form (submit)=\"deleteUserFromChannel($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"username\" name=\"username\" id=\"usernameDeleteUserFromChannel\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Make a user a group admin of a group\n  <form (submit)=\"makeUserGroupAdminOfGroup($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"username\" name=\"username\" id=\"usernameMakeGroupAdmin\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n"
+module.exports = "\n  <li *ngFor=\"let room of rooms\" >\n    {{room}}\n  </li>\n\n<div>Super User</div>\n<div>Create a new user\n<form (submit)=\"createNewUser($event)\">\n  <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameNewUser\" name=\"username\" id=\"usernameNewUser\">\n  <input type=\"password\" placeholder=\"Password\" [(ngModel)]=\"passwordNewUser\" name=\"password\" id=\"passwordNewUser\">\n  <input type=\"text\" placeholder=\"Group\" [(ngModel)]=\"groupNewUser\" name=\"group\" id=\"groupNewUser\">\n  <button type=\"submit\">Submit</button>\n</form>\n</div>\n\n<div>Remove a user\n  <form (submit)=\"removeUser($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameRemoveuser\" name=\"username\" id=\"usernameRemoveuser\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Make a user a group admin of a group\n  <form (submit)=\"makeUserGroupAdminOfGroup($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameMakeGroupAdminOfGroup\" name=\"username\" id=\"usernameMakeGroupAdminOfGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n<div>Make a user a super admin\n  <form (submit)=\"makeUserSuperAdmin($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameMakeSuperUser\" name=\"username\" id=\"usernameMakeSuperUser\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Admin User</div>\n<div>Create a new group\n  <form (submit)=\"deleteGroup($event)\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupnameNewGroup\" name=\"groupname\" id=\"groupnameNewGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n<div>Add a exisiting user to group\n  <form (submit)=\"addUserToGroup($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameAddUserToGroup\" name=\"username\" id=\"usernameAddUserToGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n<div>Add channel to group\n  <form (submit)=\"addchannelToGroup($event)\">\n    <input type=\"channel\" placeholder=\"Channel\" [(ngModel)]=\"channelnameAddChannel\" name=\"channelname\" id=\"channelnameAddChannel\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n<div>Delete a group\n  <form (submit)=\"deleteGroup($event)\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupnameDeleteGroup\" name=\"groupname\" id=\"groupnameDeleteGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Delete a user from a group\n  <form (submit)=\"deleteUserFromGroup($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameDeleteUserFromGroup\" name=\"username\" id=\"usernameDeleteUserFromGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n<div>Delete a user from a channel\n  <form (submit)=\"deleteUserFromChannel($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameDeleteUserFromChannel\" name=\"username\" id=\"usernameDeleteUserFromChannel\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Make a user a group admin of a group\n  <form (submit)=\"makeUserGroupAdminOfGroup($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameMakeGroupAdmin\" name=\"username\" id=\"usernameMakeGroupAdmin\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -382,6 +382,7 @@ var ControlpanelComponent = /** @class */ (function () {
         this.usernameNewUser = '';
         this.passwordNewUser = '';
         this.groupNewUser = '';
+        this.usernameRemoveuser = '';
         router.navigateByUrl('/controlpanel');
     }
     ControlpanelComponent.prototype.ngOnInit = function () {
@@ -392,9 +393,6 @@ var ControlpanelComponent = /** @class */ (function () {
     };
     ControlpanelComponent.prototype.createNewUser = function (event) {
         console.log(event);
-        //console.log(document.getElementById("usernameNewUser"));
-        console.log(event);
-        //This Ngmodel?
         var username = this.usernameNewUser;
         var password = this.passwordNewUser;
         var group = this.groupNewUser;
@@ -404,7 +402,21 @@ var ControlpanelComponent = /** @class */ (function () {
         var url = '/server/register?username=' + username + '&password=' + password + '&group=' + group;
         fetch(url)
             .then(function (response) {
-            console.log("resonse fetch");
+            console.log("response fetch");
+            return response.json();
+        }).then(function (myJson) {
+            console.log("Json fetch");
+            console.log(JSON.stringify(myJson));
+        });
+    };
+    ControlpanelComponent.prototype.removeUser = function ($event) {
+        console.log("This remove User Log");
+        var username = this.usernameRemoveuser;
+        console.log(username);
+        var url = '/server/delete?username=' + username;
+        fetch(url)
+            .then(function (response) {
+            console.log("response fetch");
             return response.json();
         }).then(function (myJson) {
             console.log("Json fetch");

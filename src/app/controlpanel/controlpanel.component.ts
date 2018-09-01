@@ -11,6 +11,7 @@ rooms = [];
 usernameNewUser:string ='';
 passwordNewUser:string ='';
 groupNewUser:String = '';
+usernameRemoveuser:String = '';
 
 
 
@@ -28,11 +29,8 @@ groupNewUser:String = '';
   }
 
   createNewUser(event) {
-  console.log(event);
-  //console.log(document.getElementById("usernameNewUser"));
     console.log(event);
 
-    //This Ngmodel?
     let username = this.usernameNewUser
     let password = this.passwordNewUser
     let group = this.groupNewUser
@@ -44,13 +42,29 @@ groupNewUser:String = '';
     let url = '/server/register?username=' + username + '&password=' + password + '&group=' + group;
     fetch(url)
       .then(function(response){
-        console.log("resonse fetch");
+        console.log("response fetch");
         return response.json();
       }).then(function(myJson) {
       console.log("Json fetch");
         console.log(JSON.stringify(myJson));
       });
+  }
 
+  removeUser($event) {
+  console.log("This remove User Log");
+    let username = this.usernameRemoveuser;
+    console.log(username);
+
+    let url = '/server/delete?username=' + username;
+
+    fetch(url)
+      .then(function(response){
+        console.log("response fetch");
+        return response.json();
+      }).then(function(myJson) {
+      console.log("Json fetch");
+        console.log(JSON.stringify(myJson));
+      });
 
   }
 
