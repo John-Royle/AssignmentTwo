@@ -12,6 +12,7 @@ usernameNewUser:string ='';
 passwordNewUser:string ='';
 groupNewUser:String = '';
 usernameRemoveuser:String = '';
+groupnameNewGroup:String = '';
 
 
 
@@ -66,6 +67,23 @@ usernameRemoveuser:String = '';
         console.log(JSON.stringify(myJson));
       });
 
+  }
+
+  createGroup(event) {
+    console.log(event);
+
+    let group = this.groupnameNewGroup
+    console.log(group);
+
+    let url = '/server/registerGroup?group=' + group;
+    fetch(url)
+      .then(function(response){
+        console.log("response fetch");
+        return response.json();
+      }).then(function(myJson) {
+      console.log("Json fetch");
+        console.log(JSON.stringify(myJson));
+      });
   }
 
 }

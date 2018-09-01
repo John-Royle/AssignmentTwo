@@ -30,10 +30,7 @@ module.exports = function(app,fs){
             console.log(err);
           }
         });
-        //let hello = new person(0, uname, passw, group)
-        //hello.save(fs);
 
-      //  res.send({'username':uname, 'success':true});
       }
     })
 
