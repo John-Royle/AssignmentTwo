@@ -1,0 +1,88 @@
+
+  <li *ngFor="let room of rooms" >
+    {{room}}
+  </li>
+
+<div>Super User</div>
+<div>Create a new user
+<form (submit)="createNewUser($event)">
+  <input type="email" placeholder="Username" [(ngModel)]="usernameNewUser" name="username" id="usernameNewUser">
+  <input type="password" placeholder="Password" [(ngModel)]="passwordNewUser" name="password" id="passwordNewUser">
+  <input type="text" placeholder="Group" [(ngModel)]="groupNewUser" name="group" id="groupNewUser">
+  <button type="submit">Submit</button>
+</form>
+</div>
+
+<div>Remove a user
+  <form (submit)="removeUser($event)">
+    <input type="email" placeholder="Username" [(ngModel)]="usernameRemoveuser" name="username" id="usernameRemoveuser">
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<div>Make a user a group admin of a group
+  <form (submit)="makeUserGroupAdminOfGroup($event)">
+    <input type="email" placeholder="Username" [(ngModel)]="usernameMakeGroupAdminOfGroup" name="username" id="usernameMakeGroupAdminOfGroup">
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+
+<div>Make a user a super admin
+  <form (submit)="makeUserSuperAdmin($event)">
+    <input type="email" placeholder="Username" [(ngModel)]="usernameMakeSuperUser" name="username" id="usernameMakeSuperUser">
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<div>Admin User</div>
+<div>Create a new group
+  <form (submit)="deleteGroup($event)">
+    <input type="group" placeholder="Group" [(ngModel)]="groupnameNewGroup" name="groupname" id="groupnameNewGroup">
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+
+<div>Add a exisiting user to group
+  <form (submit)="addUserToGroup($event)">
+    <input type="email" placeholder="Username" [(ngModel)]="usernameAddUserToGroup" name="username" id="usernameAddUserToGroup">
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+
+<div>Add channel to group
+  <form (submit)="addchannelToGroup($event)">
+    <input type="channel" placeholder="Channel" [(ngModel)]="channelnameAddChannel" name="channelname" id="channelnameAddChannel">
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+
+<div>Delete a group
+  <form (submit)="deleteGroup($event)">
+    <input type="group" placeholder="Group" [(ngModel)]="groupnameDeleteGroup" name="groupname" id="groupnameDeleteGroup">
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<div>Delete a user from a group
+  <form (submit)="deleteUserFromGroup($event)">
+    <input type="email" placeholder="Username" [(ngModel)]="usernameDeleteUserFromGroup" name="username" id="usernameDeleteUserFromGroup">
+    <button type="submit">Submit</button>
+  </form>
+</div>
+<div>Delete a user from a channel
+  <form (submit)="deleteUserFromChannel($event)">
+    <input type="email" placeholder="Username" [(ngModel)]="usernameDeleteUserFromChannel" name="username" id="usernameDeleteUserFromChannel">
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<div>Make a user a group admin of a group
+  <form (submit)="makeUserGroupAdminOfGroup($event)">
+    <input type="email" placeholder="Username" [(ngModel)]="usernameMakeGroupAdmin" name="username" id="usernameMakeGroupAdmin">
+    <button type="submit">Submit</button>
+  </form>
+</div>

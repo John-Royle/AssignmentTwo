@@ -1,0 +1,18 @@
+const express = require('express');
+const app = express();
+const path = require('path');
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+const bodyParser = require('body-parser');
+const fs = require('fs');
+app.use (bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.static(path.join(__dirname,'../dist/my-app2/')));
+//app.use(express.static(__dirname + '/www'));
+require('./routes.js')(app, path);
+require('./auth.js')(app, fs);
+require('./roomAuth.js')(app, fs, io);
+require('./auth.js')(app, fs);
+require('./register.js')(app, fs);
+require('./socket.js')(app, io, fs);
+require('./listen.js')(http);
