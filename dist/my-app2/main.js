@@ -384,6 +384,7 @@ var ControlpanelComponent = /** @class */ (function () {
         this.groupNewUser = '';
         this.usernameRemoveuser = '';
         this.groupnameNewGroup = '';
+        this.groupnameDeleteGroup = '';
         router.navigateByUrl('/controlpanel');
     }
     ControlpanelComponent.prototype.ngOnInit = function () {
@@ -417,10 +418,8 @@ var ControlpanelComponent = /** @class */ (function () {
         var url = '/server/delete?username=' + username;
         fetch(url)
             .then(function (response) {
-            console.log("response fetch");
             return response.json();
         }).then(function (myJson) {
-            console.log("Json fetch");
             console.log(JSON.stringify(myJson));
         });
     };
@@ -435,6 +434,17 @@ var ControlpanelComponent = /** @class */ (function () {
             return response.json();
         }).then(function (myJson) {
             console.log("Json fetch");
+            console.log(JSON.stringify(myJson));
+        });
+    };
+    ControlpanelComponent.prototype.deleteGroup = function (event) {
+        var group = this.groupnameDeleteGroup;
+        console.log(group);
+        var url = '/server/deleteGroup?group=' + group;
+        fetch(url)
+            .then(function (response) {
+            return response.json();
+        }).then(function (myJson) {
             console.log(JSON.stringify(myJson));
         });
     };

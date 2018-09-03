@@ -13,6 +13,7 @@ passwordNewUser:string ='';
 groupNewUser:String = '';
 usernameRemoveuser:String = '';
 groupnameNewGroup:String = '';
+groupnameDeleteGroup:String = '';
 
 
 
@@ -60,10 +61,8 @@ groupnameNewGroup:String = '';
 
     fetch(url)
       .then(function(response){
-        console.log("response fetch");
         return response.json();
       }).then(function(myJson) {
-      console.log("Json fetch");
         console.log(JSON.stringify(myJson));
       });
 
@@ -84,6 +83,22 @@ groupnameNewGroup:String = '';
       console.log("Json fetch");
         console.log(JSON.stringify(myJson));
       });
+  }
+
+  deleteGroup(event) {
+
+    let group = this.groupnameDeleteGroup;
+    console.log(group);
+
+    let url = '/server/deleteGroup?group=' + group;
+
+    fetch(url)
+      .then(function(response){
+        return response.json();
+      }).then(function(myJson) {
+        console.log(JSON.stringify(myJson));
+      });
+
   }
 
 }

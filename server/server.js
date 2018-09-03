@@ -15,6 +15,7 @@ require('./roomAuth.js')(app, fs, io);
 require('./auth.js')(app, fs);
 require('./register.js')(app, fs);
 require('./registerGroup.js')(app, fs);
+require('./deleteGroup.js')(app, fs);
 require('./delete.js')(app, fs);
 require('./socket.js')(app, io, fs);
 require('./listen.js')(http);
