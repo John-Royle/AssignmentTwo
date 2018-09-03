@@ -48,6 +48,7 @@
 <div>Add an exisiting user to group
   <form (submit)="addUserToGroup($event)">
     <input type="email" placeholder="Username" [(ngModel)]="usernameAddUserToGroup" name="username" id="usernameAddUserToGroup">
+    <input type="group" placeholder="Group" [(ngModel)]="groupAddUserToGroup" name="groupname" id="groupAddUserToGroup">
     <button type="submit">Submit</button>
   </form>
 </div>

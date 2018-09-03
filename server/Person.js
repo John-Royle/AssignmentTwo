@@ -32,11 +32,31 @@ module.exports = class Person {
     console.log(this);
   }
 
+  addToGroup(group) {
+    for (let i = 0; i < this.groups.length; i ++) {
+      if (this.groups[i] === group) {
+        console.log("got here");
+        return false;
+      }
+    }
+    this.groups.push(group);
+    return true;
+  }
+
+  deleteFromGroup(group) {
+    for (let i = 0; i < this.groups.length; i ++) {
+      if (this.groups[i] === group) {
+        this.groups.splice(this.groups.indexOf(group), 1);
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   changeUserType(newType) {
     this.userType = newType;
     console.log(this);
-
-
   }
 
   save(fs) {

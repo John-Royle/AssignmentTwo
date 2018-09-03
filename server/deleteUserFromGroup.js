@@ -4,7 +4,7 @@ const {StringDecoder} = require('string_decoder');
 
 module.exports = function(app,fs){
 
-  app.get('/server/addUserToGroup', (req, res) => {
+  app.get('/server/deleteUserFromGroup', (req, res) => {
     const decoder = new StringDecoder('utf8');
     var isUser =0;
     var userObj;
@@ -24,13 +24,16 @@ module.exports = function(app,fs){
               if (err){
                 res.send({'group':group, 'success':false});
               }
-              if (hello.addToGroup(group)) {
+              if (hello.deleteFromGroup(group)) {
                 hello.save(fs);
+                res.send({'username':uname, 'success':true});
+              } else {
+                res.send({'username':uname, 'success':false});
               }
             });
 
             };
-          res.send({'username':uname, 'success':true});
+
         });
 
 
