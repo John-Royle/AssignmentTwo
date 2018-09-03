@@ -1,4 +1,5 @@
-const groupClass = require('./GroupClass.js')
+const groupClass = require('./GroupClass.js');
+var id = 0;
 
 module.exports = function(app,fs){
 
@@ -20,7 +21,8 @@ module.exports = function(app,fs){
         res.send({'group':group,'success':false});
       } else {
         console.log("This bit")
-        let hello = new groupClass(0, group, null)
+        let hello = new groupClass(id, group, null);
+        id += 1;
         hello.save(fs);
 
         res.send({'group':group, 'success':true});

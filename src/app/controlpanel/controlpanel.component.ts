@@ -14,6 +14,9 @@ groupNewUser:String = '';
 usernameRemoveuser:String = '';
 groupnameNewGroup:String = '';
 groupnameDeleteGroup:String = '';
+usernameMakeGroupAdminOfGroup:String = '';
+groupNameAdminOfGroup:String = '';
+usernameMakeSuperUser:String = '';
 
 
 
@@ -96,6 +99,36 @@ groupnameDeleteGroup:String = '';
       .then(function(response){
         return response.json();
       }).then(function(myJson) {
+        console.log(JSON.stringify(myJson));
+      });
+
+  }
+
+  makeUserGroupAdminOfGroup(event) {
+    let username = this.usernameMakeGroupAdminOfGroup;
+    let group = this.groupNameAdminOfGroup;
+
+    let url = '/server/groupAdminOfGroup?username=' + username + '&group=' + group;
+    fetch(url)
+      .then(function(response){
+        console.log("response fetch");
+        return response.json();
+      }).then(function(myJson) {
+      console.log("Json fetch");
+        console.log(JSON.stringify(myJson));
+      });
+  }
+
+  makeUserSuperAdmin(event) {
+    let username = this.usernameMakeSuperUser;
+
+    let url = '/server/makeSuper?username=' + username;
+    fetch(url)
+      .then(function(response){
+        console.log("response fetch");
+        return response.json();
+      }).then(function(myJson) {
+      console.log("Json fetch");
         console.log(JSON.stringify(myJson));
       });
 

@@ -23,6 +23,7 @@
 <div>Make a user a group admin of a group
   <form (submit)="makeUserGroupAdminOfGroup($event)">
     <input type="email" placeholder="Username" [(ngModel)]="usernameMakeGroupAdminOfGroup" name="username" id="usernameMakeGroupAdminOfGroup">
+    <input type="group" placeholder="Group" [(ngModel)]="groupNameAdminOfGroup" name="groupname" id="groupNameAdminOfGroup">
     <button type="submit">Submit</button>
   </form>
 </div>
@@ -44,7 +45,7 @@
 </div>
 
 
-<div>Add a exisiting user to group
+<div>Add an exisiting user to group
   <form (submit)="addUserToGroup($event)">
     <input type="email" placeholder="Username" [(ngModel)]="usernameAddUserToGroup" name="username" id="usernameAddUserToGroup">
     <button type="submit">Submit</button>

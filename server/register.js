@@ -1,4 +1,5 @@
-const person = require('./Person.js')
+const person = require('./Person.js');
+var id = 1;
 
 module.exports = function(app,fs){
 
@@ -9,6 +10,8 @@ module.exports = function(app,fs){
     var uname = req.query.username;
     var passw = req.query.password;
     var group = req.query.group;
+
+
 
     console.log("This"+uname);
     //
@@ -23,7 +26,8 @@ module.exports = function(app,fs){
       if (exists) {
         res.send({'username':uname,'success':false});
       } else {
-        let hello = new person(0, uname, passw, group)
+        let hello = new person(id, uname, passw, group)
+        id += 1;
         hello.save(fs);
 
         res.send({'username':uname, 'success':true});
