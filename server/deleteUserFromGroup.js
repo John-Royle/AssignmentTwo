@@ -9,7 +9,7 @@ module.exports = function(app,fs){
     var isUser =0;
     var userObj;
 
-    var uname = req.query.username
+    var uname = req.query.username;
     var group = req.query.group;
 
 

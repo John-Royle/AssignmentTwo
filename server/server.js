@@ -20,5 +20,6 @@ require('./delete.js')(app, fs);
 require('./makeSuper.js')(app, fs);
 require('./addUserToGroup.js')(app, fs);
 require('./groupAdminOfGroup.js')(app, fs);
+require('./deleteUserFromGroup.js')(app, fs);
 require('./socket.js')(app, io, fs);
 require('./listen.js')(http);

@@ -19,6 +19,8 @@ groupNameAdminOfGroup:String = '';
 usernameMakeSuperUser:String = '';
 groupAddUserToGroup:String = '';
 usernameAddUserToGroup:String = '';
+usernameDeleteUserFromGroup:String = '';
+deleteAUserFromGroup:String = '';
 
 
 
@@ -144,6 +146,22 @@ usernameAddUserToGroup:String = '';
   let group = this.groupAddUserToGroup;
 
   let url = '/server/addUserToGroup?username=' + username + '&group=' + group;
+  fetch(url)
+    .then(function(response){
+      console.log("response fetch");
+      return response.json();
+    }).then(function(myJson) {
+    console.log("Json fetch");
+      console.log(JSON.stringify(myJson));
+    });
+
+  }
+
+  deleteUserFromGroupFunc(event) {
+  let username = this.usernameDeleteUserFromGroup;
+  let group = this.deleteAUserFromGroup;
+
+  let url = '/server/deleteUserFromGroup?username=' + username + '&group=' + group;
   fetch(url)
     .then(function(response){
       console.log("response fetch");
