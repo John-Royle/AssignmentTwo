@@ -57,6 +57,7 @@
 <div>Add channel to group
   <form (submit)="addchannelToGroup($event)">
     <input type="channel" placeholder="Channel" [(ngModel)]="channelnameAddChannel" name="channelname" id="channelnameAddChannel">
+    <input type="group" placeholder="Group" [(ngModel)]="groupChannelToGroup" name="groupname" id="groupChannelToGroup">
     <button type="submit">Submit</button>
   </form>
 </div>

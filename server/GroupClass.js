@@ -35,6 +35,17 @@ module.exports = class GroupClass {
     return true;
   }
 
+  addChannelToGroup(channel) {
+    for (let i = 0; i < this.channel.length; i ++) {
+      if (this.channel[i] === channel) {
+        console.log("got here");
+        return false;
+      }
+    }
+    this.channel.push(channel);
+    return true;
+  }
+
   save(fs) {
 
     let path = './server/groups/' + this.name;
