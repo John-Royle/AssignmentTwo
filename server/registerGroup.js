@@ -1,5 +1,5 @@
 const groupClass = require('./GroupClass.js');
-var id = 0;
+var id = 1;
 
 module.exports = function(app,fs){
 

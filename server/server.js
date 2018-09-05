@@ -21,6 +21,7 @@ require('./makeSuper.js')(app, fs);
 require('./addUserToGroup.js')(app, fs);
 require('./groupAdminOfGroup.js')(app, fs);
 require('./createChannel.js')(app, fs);
+require('./addUserToChannel.js')(app, fs);
 require('./deleteUserFromGroup.js')(app, fs);
 require('./socket.js')(app, io, fs);
 require('./listen.js')(http);

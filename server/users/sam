@@ -1,1 +1,1 @@
-{"id":0,"name":"sam","passw":"blue","groups":[],"userType":2}
+{"id":1,"name":"sam","passw":"34","groups":["hello","hello2"],"userType":0,"channels":["hello"]}

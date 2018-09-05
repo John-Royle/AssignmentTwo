@@ -17,6 +17,7 @@ module.exports = class Person {
     this.groups = [];
     this.groups.push(group);
     this.userType = user;
+    this.channels = [];
 
     console.log(this);
 
@@ -28,8 +29,20 @@ module.exports = class Person {
     this.passw = save.passw;
     this.groups = save.groups;
     this.userType = save.userType;
+    this.channels = save.channels;
 
     console.log(this);
+  }
+
+  addChannel(channel) {
+    for (let i = 0; i < this.channels.length; i ++) {
+      if (this.channels[i] === channel) {
+        console.log("got here");
+        return false;
+      }
+    }
+    this.channels.push(channel);
+    return true;
   }
 
   addToGroup(group) {

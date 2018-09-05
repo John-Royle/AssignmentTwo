@@ -23,6 +23,9 @@ usernameDeleteUserFromGroup:String = '';
 deleteAUserFromGroup:String = '';
 channelnameAddChannel:String = '';
 groupChannelToGroup:String = '';
+addUserToChannel:String = '';
+channelAddUserChannel:String = '';
+
 
 
 
@@ -182,6 +185,22 @@ groupChannelToGroup:String = '';
   let group = this.groupChannelToGroup;
 
   let url = '/server/createChannel?channelname=' + channelname + '&group=' + group;
+  fetch(url)
+    .then(function(response){
+      console.log("response fetch");
+      return response.json();
+    }).then(function(myJson) {
+    console.log("Json fetch");
+      console.log(JSON.stringify(myJson));
+    });
+
+  }
+
+  addNewUserToChannel($event) {
+  let channeluser = this.addUserToChannel;
+  let channelname = this.channelAddUserChannel;
+  console.log("Hello from Add to Channel");
+  let url = '/server/addUserToChannel?username=' + channeluser + '&channelname=' + channelname;
   fetch(url)
     .then(function(response){
       console.log("response fetch");
