@@ -67,6 +67,29 @@ module.exports = class Person {
     return false;
   }
 
+  checkAllowedChannels(group){
+    let toReturn = {"GroupName":group.name, "channels": []}
+    for (let i = 0; i < this.channels.length; i++){
+      for (let j = 0; j < group.channel.length; j++) {
+        if (this.channels[i] === group.channel[j]){
+          toReturn.channels.push(this.channels[i]);
+        }
+      }
+    }
+    return toReturn;
+  }
+
+  deleteChannel(channel) {
+    for (let i = 0; i < this.channels.length; i ++) {
+      if (this.channels[i] === channel) {
+        this.channels.splice(this.channels.indexOf(channel), 1);
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   changeUserType(newType) {
     this.userType = newType;
     console.log(this);

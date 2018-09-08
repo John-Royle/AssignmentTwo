@@ -1,7 +1,5 @@
 
-  <li *ngFor="let room of rooms" >
-    {{room}}
-  </li>
+
 
 <div>Super User</div>
 <div>Create a new user
@@ -20,13 +18,6 @@
   </form>
 </div>
 
-<div>Make a user a group admin of a group
-  <form (submit)="makeUserGroupAdminOfGroup($event)">
-    <input type="email" placeholder="Username" [(ngModel)]="usernameMakeGroupAdminOfGroup" name="username" id="usernameMakeGroupAdminOfGroup">
-    <input type="group" placeholder="Group" [(ngModel)]="groupNameAdminOfGroup" name="groupname" id="groupNameAdminOfGroup">
-    <button type="submit">Submit</button>
-  </form>
-</div>
 
 
 <div>Make a user a super admin
@@ -77,9 +68,11 @@
     <button type="submit">Submit</button>
   </form>
 </div>
+
 <div>Delete a user from a channel
   <form (submit)="deleteUserFromChannel($event)">
-    <input type="email" placeholder="Username" [(ngModel)]="usernameDeleteUserFromChannel" name="username" id="usernameDeleteUserFromChannel">
+    <input type="email" placeholder="Username" [(ngModel)]="deleteUserFromChannelName" name="username" id="deleteUserFromChannelName">
+    <input type="channel" placeholder="Channel" [(ngModel)]="userDeleteFromChannelChannelName" name="channelname" id="userDeleteFromChannelChannelName">
     <button type="submit">Submit</button>
   </form>
 </div>
@@ -88,14 +81,14 @@
   <form (submit)="addNewUserToChannel($event)">
     <input type="email" placeholder="Username" [(ngModel)]="addUserToChannel" name="username" id="addUserToChannel">
     <input type="channel" placeholder="Channel" [(ngModel)]="channelAddUserChannel" name="channelname" id="channelAddUserChannel">
-
     <button type="submit">Submit</button>
   </form>
 </div>
 
 <div>Make a user a group admin of a group
   <form (submit)="makeUserGroupAdminOfGroup($event)">
-    <input type="email" placeholder="Username" [(ngModel)]="usernameMakeGroupAdmin" name="username" id="usernameMakeGroupAdmin">
+    <input type="email" placeholder="Username" [(ngModel)]="usernameMakeGroupAdminOfGroup" name="username" id="usernameMakeGroupAdminOfGroup">
+    <input type="group" placeholder="Group" [(ngModel)]="groupNameAdminOfGroup" name="groupname" id="groupNameAdminOfGroup">
     <button type="submit">Submit</button>
   </form>
 </div>

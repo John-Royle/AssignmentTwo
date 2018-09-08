@@ -7,6 +7,7 @@ import {CreateuserComponent} from './createuser/createuser.component';
 import {LogoutComponent} from './logout/logout.component';
 import {SelectroomComponent} from './selectroom/selectroom.component';
 import {ControlpanelComponent} from './controlpanel/controlpanel.component';
+import {ChannelhistoryComponent} from './channelhistory/channelhistory.component';
 
 import {SecondComponent} from './second/second.component';
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:"logout", component:LogoutComponent},
   {path:"controlpanel", component:ControlpanelComponent},
   {path:"second", component:SecondComponent},
+  {path:"channelhistory", component:ChannelhistoryComponent},
   {path:"**", redirectTo: '404'},
 
 ];

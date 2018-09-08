@@ -18,43 +18,44 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  fetchingData(url, finish, cannot) {
+  fetch(url)
+    .then(response => {return response.json()})
+    .then(myJson => {
+      console.log(myJson);
+      if (myJson.success === true) {
+        finish(myJson);
+      } else {
+        cannot();
+      }
+    })
+  }
+
+  falseLogin() {
+    alert("Username and Password were incorrect");
+  }
+
+  finishLogin(data) {
+  console.log(data);
+  if (typeof(Storage) !== "undefined") {
+    sessionStorage.setItem("username", data.username);
+    sessionStorage.setItem("id", data.type);
+  }
+    console.log(sessionStorage.getItem("id"));
+    console.log(sessionStorage.getItem("username"));
+    this.router.navigateByUrl('/controlpanel');
+  }
+
 
   loginUser(event) {
     event.preventDefault();
-    if (typeof(Storage) !== "undefined") {
 
-      sessionStorage.setItem("id", count.toString());
-      sessionStorage.setItem("username", this.username);
-      sessionStorage.setItem("birthDate", "14/02/80");
-      sessionStorage.setItem("age", "34");
+    let falseBind = this.falseLogin.bind(this);
+    let finishBind = this.finishLogin.bind(this);
+    let url = '/server/login?username=' + this.username;
 
-    } else {
-      console.log("no web storage support");
-      alert("No web storage support");
-    }
+    this.fetchingData(url, finishBind, falseBind);
 
-    if (this.username == "u" && (this.password == "p")) {
-    sessionStorage.setItem("id", count.toString());
-    sessionStorage.setItem("username", this.username);
-    sessionStorage.setItem("birthDate", "14/02/80");
-    sessionStorage.setItem("age", "34");
-
-    console.log(sessionStorage.getItem("id"));
-    console.log(sessionStorage.getItem("username"));
-    console.log(sessionStorage.getItem("birthDate"));
-    console.log(sessionStorage.getItem("age"));
-
-      this.router.navigateByUrl('/chat');
-    } else if (this.username == "p" && (this.password == "u")) {
-
-    sessionStorage.setItem("id", "2");
-    sessionStorage.setItem("username", "Brown");
-    this.router.navigateByUrl('/chat');
-
-     } else {
-      alert("Username and Password were incorrect");
-    }
-    count = count +1;
 
   }
 }

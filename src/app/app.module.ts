@@ -15,6 +15,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { SocketserviceComponent } from './socketservice/socketservice.component';
 import { SelectroomComponent } from './selectroom/selectroom.component';
 import { ControlpanelComponent } from './controlpanel/controlpanel.component';
+import { ChannelhistoryComponent } from './channelhistory/channelhistory.component';
 
 
 
@@ -30,7 +31,8 @@ import { ControlpanelComponent } from './controlpanel/controlpanel.component';
     NotfoundComponent,
     SocketserviceComponent,
     SelectroomComponent,
-    ControlpanelComponent
+    ControlpanelComponent,
+    ChannelhistoryComponent
   ],
   imports: [
     BrowserModule,

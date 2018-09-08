@@ -42,13 +42,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _logout_logout_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./logout/logout.component */ "./src/app/logout/logout.component.ts");
 /* harmony import */ var _selectroom_selectroom_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./selectroom/selectroom.component */ "./src/app/selectroom/selectroom.component.ts");
 /* harmony import */ var _controlpanel_controlpanel_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./controlpanel/controlpanel.component */ "./src/app/controlpanel/controlpanel.component.ts");
-/* harmony import */ var _second_second_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./second/second.component */ "./src/app/second/second.component.ts");
+/* harmony import */ var _channelhistory_channelhistory_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./channelhistory/channelhistory.component */ "./src/app/channelhistory/channelhistory.component.ts");
+/* harmony import */ var _second_second_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./second/second.component */ "./src/app/second/second.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -67,7 +69,8 @@ var routes = [
     { path: "404", component: _notfound_notfound_component__WEBPACK_IMPORTED_MODULE_4__["NotfoundComponent"] },
     { path: "logout", component: _logout_logout_component__WEBPACK_IMPORTED_MODULE_6__["LogoutComponent"] },
     { path: "controlpanel", component: _controlpanel_controlpanel_component__WEBPACK_IMPORTED_MODULE_8__["ControlpanelComponent"] },
-    { path: "second", component: _second_second_component__WEBPACK_IMPORTED_MODULE_9__["SecondComponent"] },
+    { path: "second", component: _second_second_component__WEBPACK_IMPORTED_MODULE_10__["SecondComponent"] },
+    { path: "channelhistory", component: _channelhistory_channelhistory_component__WEBPACK_IMPORTED_MODULE_9__["ChannelhistoryComponent"] },
     { path: "**", redirectTo: '404' },
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -175,12 +178,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _socketservice_socketservice_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./socketservice/socketservice.component */ "./src/app/socketservice/socketservice.component.ts");
 /* harmony import */ var _selectroom_selectroom_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./selectroom/selectroom.component */ "./src/app/selectroom/selectroom.component.ts");
 /* harmony import */ var _controlpanel_controlpanel_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./controlpanel/controlpanel.component */ "./src/app/controlpanel/controlpanel.component.ts");
+/* harmony import */ var _channelhistory_channelhistory_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./channelhistory/channelhistory.component */ "./src/app/channelhistory/channelhistory.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -212,7 +217,8 @@ var AppModule = /** @class */ (function () {
                 _notfound_notfound_component__WEBPACK_IMPORTED_MODULE_11__["NotfoundComponent"],
                 _socketservice_socketservice_component__WEBPACK_IMPORTED_MODULE_12__["SocketserviceComponent"],
                 _selectroom_selectroom_component__WEBPACK_IMPORTED_MODULE_13__["SelectroomComponent"],
-                _controlpanel_controlpanel_component__WEBPACK_IMPORTED_MODULE_14__["ControlpanelComponent"]
+                _controlpanel_controlpanel_component__WEBPACK_IMPORTED_MODULE_14__["ControlpanelComponent"],
+                _channelhistory_channelhistory_component__WEBPACK_IMPORTED_MODULE_15__["ChannelhistoryComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -224,6 +230,69 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/channelhistory/channelhistory.component.css":
+/*!*************************************************************!*\
+  !*** ./src/app/channelhistory/channelhistory.component.css ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/channelhistory/channelhistory.component.html":
+/*!**************************************************************!*\
+  !*** ./src/app/channelhistory/channelhistory.component.html ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  Message History Empty\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/channelhistory/channelhistory.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/channelhistory/channelhistory.component.ts ***!
+  \************************************************************/
+/*! exports provided: ChannelhistoryComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChannelhistoryComponent", function() { return ChannelhistoryComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ChannelhistoryComponent = /** @class */ (function () {
+    function ChannelhistoryComponent() {
+    }
+    ChannelhistoryComponent.prototype.ngOnInit = function () {
+    };
+    ChannelhistoryComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-channelhistory',
+            template: __webpack_require__(/*! ./channelhistory.component.html */ "./src/app/channelhistory/channelhistory.component.html"),
+            styles: [__webpack_require__(/*! ./channelhistory.component.css */ "./src/app/channelhistory/channelhistory.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ChannelhistoryComponent);
+    return ChannelhistoryComponent;
 }());
 
 
@@ -348,7 +417,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n  <li *ngFor=\"let room of rooms\" >\n    {{room}}\n  </li>\n\n<div>Super User</div>\n<div>Create a new user\n<form (submit)=\"createNewUser($event)\">\n  <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameNewUser\" name=\"username\" id=\"usernameNewUser\">\n  <input type=\"password\" placeholder=\"Password\" [(ngModel)]=\"passwordNewUser\" name=\"password\" id=\"passwordNewUser\">\n  <input type=\"text\" placeholder=\"Group\" [(ngModel)]=\"groupNewUser\" name=\"group\" id=\"groupNewUser\">\n  <button type=\"submit\">Submit</button>\n</form>\n</div>\n\n<div>Remove a user\n  <form (submit)=\"removeUser($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameRemoveuser\" name=\"username\" id=\"usernameRemoveuser\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Make a user a group admin of a group\n  <form (submit)=\"makeUserGroupAdminOfGroup($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameMakeGroupAdminOfGroup\" name=\"username\" id=\"usernameMakeGroupAdminOfGroup\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupNameAdminOfGroup\" name=\"groupname\" id=\"groupNameAdminOfGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n<div>Make a user a super admin\n  <form (submit)=\"makeUserSuperAdmin($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameMakeSuperUser\" name=\"username\" id=\"usernameMakeSuperUser\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Admin User</div>\n<div>Create a new group\n  <form (submit)=\"createGroup($event)\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupnameNewGroup\" name=\"groupname\" id=\"groupnameNewGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n<div>Add an exisiting user to group\n  <form (submit)=\"addUserToGroup($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameAddUserToGroup\" name=\"username\" id=\"usernameAddUserToGroup\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupAddUserToGroup\" name=\"groupname\" id=\"groupAddUserToGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n<div>Add channel to group\n  <form (submit)=\"addchannelToGroup($event)\">\n    <input type=\"channel\" placeholder=\"Channel\" [(ngModel)]=\"channelnameAddChannel\" name=\"channelname\" id=\"channelnameAddChannel\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupChannelToGroup\" name=\"groupname\" id=\"groupChannelToGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n<div>Delete a group\n  <form (submit)=\"deleteGroup($event)\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupnameDeleteGroup\" name=\"groupname\" id=\"groupnameDeleteGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Delete a user from a group\n  <form (submit)=\"deleteUserFromGroupFunc($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameDeleteUserFromGroup\" name=\"username\" id=\"usernameDeleteUserFromGroup\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"deleteAUserFromGroup\" name=\"groupname\" id=\"deleteAUserFromGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n<div>Delete a user from a channel\n  <form (submit)=\"deleteUserFromChannel($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameDeleteUserFromChannel\" name=\"username\" id=\"usernameDeleteUserFromChannel\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Add a user to a channel\n  <form (submit)=\"addNewUserToChannel($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"addUserToChannel\" name=\"username\" id=\"addUserToChannel\">\n    <input type=\"channel\" placeholder=\"Channel\" [(ngModel)]=\"channelAddUserChannel\" name=\"channelname\" id=\"channelAddUserChannel\">\n\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Make a user a group admin of a group\n  <form (submit)=\"makeUserGroupAdminOfGroup($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameMakeGroupAdmin\" name=\"username\" id=\"usernameMakeGroupAdmin\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n"
+module.exports = "\n\n\n<div>Super User</div>\n<div>Create a new user\n<form (submit)=\"createNewUser($event)\">\n  <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameNewUser\" name=\"username\" id=\"usernameNewUser\">\n  <input type=\"password\" placeholder=\"Password\" [(ngModel)]=\"passwordNewUser\" name=\"password\" id=\"passwordNewUser\">\n  <input type=\"text\" placeholder=\"Group\" [(ngModel)]=\"groupNewUser\" name=\"group\" id=\"groupNewUser\">\n  <button type=\"submit\">Submit</button>\n</form>\n</div>\n\n<div>Remove a user\n  <form (submit)=\"removeUser($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameRemoveuser\" name=\"username\" id=\"usernameRemoveuser\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n\n<div>Make a user a super admin\n  <form (submit)=\"makeUserSuperAdmin($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameMakeSuperUser\" name=\"username\" id=\"usernameMakeSuperUser\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Admin User</div>\n<div>Create a new group\n  <form (submit)=\"createGroup($event)\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupnameNewGroup\" name=\"groupname\" id=\"groupnameNewGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n<div>Add an exisiting user to group\n  <form (submit)=\"addUserToGroup($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameAddUserToGroup\" name=\"username\" id=\"usernameAddUserToGroup\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupAddUserToGroup\" name=\"groupname\" id=\"groupAddUserToGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n<div>Add channel to group\n  <form (submit)=\"addchannelToGroup($event)\">\n    <input type=\"channel\" placeholder=\"Channel\" [(ngModel)]=\"channelnameAddChannel\" name=\"channelname\" id=\"channelnameAddChannel\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupChannelToGroup\" name=\"groupname\" id=\"groupChannelToGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n<div>Delete a group\n  <form (submit)=\"deleteGroup($event)\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupnameDeleteGroup\" name=\"groupname\" id=\"groupnameDeleteGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Delete a user from a group\n  <form (submit)=\"deleteUserFromGroupFunc($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameDeleteUserFromGroup\" name=\"username\" id=\"usernameDeleteUserFromGroup\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"deleteAUserFromGroup\" name=\"groupname\" id=\"deleteAUserFromGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Delete a user from a channel\n  <form (submit)=\"deleteUserFromChannel($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"deleteUserFromChannelName\" name=\"username\" id=\"deleteUserFromChannelName\">\n    <input type=\"channel\" placeholder=\"Channel\" [(ngModel)]=\"userDeleteFromChannelChannelName\" name=\"channelname\" id=\"userDeleteFromChannelChannelName\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Add a user to a channel\n  <form (submit)=\"addNewUserToChannel($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"addUserToChannel\" name=\"username\" id=\"addUserToChannel\">\n    <input type=\"channel\" placeholder=\"Channel\" [(ngModel)]=\"channelAddUserChannel\" name=\"channelname\" id=\"channelAddUserChannel\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Make a user a group admin of a group\n  <form (submit)=\"makeUserGroupAdminOfGroup($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameMakeGroupAdminOfGroup\" name=\"username\" id=\"usernameMakeGroupAdminOfGroup\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupNameAdminOfGroup\" name=\"groupname\" id=\"groupNameAdminOfGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -396,6 +465,8 @@ var ControlpanelComponent = /** @class */ (function () {
         this.groupChannelToGroup = '';
         this.addUserToChannel = '';
         this.channelAddUserChannel = '';
+        this.deleteUserFromChannelName = '';
+        this.userDeleteFromChannelChannelName = '';
         router.navigateByUrl('/controlpanel');
     }
     ControlpanelComponent.prototype.ngOnInit = function () {
@@ -528,6 +599,20 @@ var ControlpanelComponent = /** @class */ (function () {
         var channelname = this.channelAddUserChannel;
         console.log("Hello from Add to Channel");
         var url = '/server/addUserToChannel?username=' + channeluser + '&channelname=' + channelname;
+        fetch(url)
+            .then(function (response) {
+            console.log("response fetch");
+            return response.json();
+        }).then(function (myJson) {
+            console.log("Json fetch");
+            console.log(JSON.stringify(myJson));
+        });
+    };
+    ControlpanelComponent.prototype.deleteUserFromChannel = function (event) {
+        var channeluser = this.deleteUserFromChannelName;
+        var channelname = this.userDeleteFromChannelChannelName;
+        console.log("Hello from Delete to Channel");
+        var url = '/server/deleteUserFromChannel?username=' + channeluser + '&channelname=' + channelname;
         fetch(url)
             .then(function (response) {
             console.log("response fetch");
@@ -679,38 +764,38 @@ var LoginComponent = /** @class */ (function () {
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
+    LoginComponent.prototype.fetchingData = function (url, finish, cannot) {
+        fetch(url)
+            .then(function (response) { return response.json(); })
+            .then(function (myJson) {
+            console.log(myJson);
+            if (myJson.success === true) {
+                finish(myJson);
+            }
+            else {
+                cannot();
+            }
+        });
+    };
+    LoginComponent.prototype.falseLogin = function () {
+        alert("Username and Password were incorrect");
+    };
+    LoginComponent.prototype.finishLogin = function (data) {
+        console.log(data);
+        if (typeof (Storage) !== "undefined") {
+            sessionStorage.setItem("username", data.username);
+            sessionStorage.setItem("id", data.type);
+        }
+        console.log(sessionStorage.getItem("id"));
+        console.log(sessionStorage.getItem("username"));
+        this.router.navigateByUrl('/controlpanel');
+    };
     LoginComponent.prototype.loginUser = function (event) {
         event.preventDefault();
-        if (typeof (Storage) !== "undefined") {
-            sessionStorage.setItem("id", count.toString());
-            sessionStorage.setItem("username", this.username);
-            sessionStorage.setItem("birthDate", "14/02/80");
-            sessionStorage.setItem("age", "34");
-        }
-        else {
-            console.log("no web storage support");
-            alert("No web storage support");
-        }
-        if (this.username == "u" && (this.password == "p")) {
-            sessionStorage.setItem("id", count.toString());
-            sessionStorage.setItem("username", this.username);
-            sessionStorage.setItem("birthDate", "14/02/80");
-            sessionStorage.setItem("age", "34");
-            console.log(sessionStorage.getItem("id"));
-            console.log(sessionStorage.getItem("username"));
-            console.log(sessionStorage.getItem("birthDate"));
-            console.log(sessionStorage.getItem("age"));
-            this.router.navigateByUrl('/chat');
-        }
-        else if (this.username == "p" && (this.password == "u")) {
-            sessionStorage.setItem("id", "2");
-            sessionStorage.setItem("username", "Brown");
-            this.router.navigateByUrl('/chat');
-        }
-        else {
-            alert("Username and Password were incorrect");
-        }
-        count = count + 1;
+        var falseBind = this.falseLogin.bind(this);
+        var finishBind = this.finishLogin.bind(this);
+        var url = '/server/login?username=' + this.username;
+        this.fetchingData(url, finishBind, falseBind);
     };
     LoginComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -814,7 +899,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav>\n  <ul>\n    <li> <a routerLink=\"login\">Login</a> </li>\n    <li> <a routerLink=\"createuser\">Create User</a> </li>\n    <li> <a routerLink=\"logout\">Logout</a> </li>\n    <li> <a routerLink=\"selectroom\">Select Room</a> </li>\n    <li> <a routerLink=\"controlpanel\">Control Panel</a> </li>\n  </ul>\n</nav>\n"
+module.exports = "<nav>\n  <ul>\n    <li> <a routerLink=\"login\">Login</a> </li>\n    <li> <a routerLink=\"createuser\">Create User</a> </li>\n    <li> <a routerLink=\"logout\">Logout</a> </li>\n    <li> <a routerLink=\"selectroom\">Select Room</a> </li>\n    <li> <a routerLink=\"controlpanel\">Control Panel</a> </li>\n    <li> <a routerLink=\"channelhistory\">Channel History</a> </li>\n  </ul>\n</nav>\n"
 
 /***/ }),
 
@@ -1015,7 +1100,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  selectroom works!\n  <li>\n    <ul><a routerLink=\"chat\">roomTwo</a></ul>\n  </li>\n</p>\n"
+module.exports = "<li *ngFor=\"let room of rooms\" >\n  {{room}}\n</li>\n"
 
 /***/ }),
 
@@ -1045,8 +1130,46 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var SelectroomComponent = /** @class */ (function () {
     function SelectroomComponent(router) {
         this.router = router;
+        this.rooms = [];
     }
+    SelectroomComponent.prototype.hello = function (url, set) {
+        fetch(url)
+            .then(function (response) { return response.json(); })
+            .then(function (myJson) {
+            var data = [];
+            console.log(myJson);
+            for (var i = 0; i < myJson.success.groups.length; i++) {
+                var group = { "Name": myJson.success.groups[i].GroupName, "Channels": [] };
+                for (var j = 0; j < myJson.success.groups[i].channels.length; j++) {
+                    group.Channels.push(myJson.success.groups[i].channels[j]);
+                }
+                data.push(group);
+            }
+            console.log(data);
+            set(data);
+        });
+    };
+    SelectroomComponent.prototype.setChannels = function (data) {
+        for (var i = 0; i < data.length; i++) {
+            this.rooms.push("Group:");
+            this.rooms.push(data[i].Name);
+            if (data[i].Channels.length > 0) {
+                this.rooms.push("Channels:");
+                for (var j = 0; j < data[i].Channels.length; j++) {
+                    this.rooms.push(data[i].Channels[j]);
+                }
+            }
+        }
+    };
     SelectroomComponent.prototype.ngOnInit = function () {
+        //this.router.navigateByUrl('/chat');
+        var set = this.setChannels.bind(this);
+        var channeluser = sessionStorage.getItem("username");
+        if (channeluser === null) {
+            channeluser = "sam";
+        }
+        var url = '/server/getGroupsAndChannels?username=' + channeluser;
+        this.hello(url, set);
     };
     SelectroomComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
