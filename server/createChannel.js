@@ -4,6 +4,11 @@ const {StringDecoder} = require('string_decoder');
 
 module.exports = function(app,fs){
 
+  /* Creates a channel and adds to the Group object.
+   * Parameter: channelname: The channel that I wish to add to a group.
+   * Parameter: group: The group that I wish to add the channel to.
+  */
+
   app.get('/server/createChannel', (req, res) => {
     const decoder = new StringDecoder('utf8');
     var isUser =0;

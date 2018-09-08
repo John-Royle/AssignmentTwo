@@ -4,6 +4,11 @@ const {StringDecoder} = require('string_decoder');
 
 module.exports = function(app,fs){
 
+  /* Adds a user to the Group object.
+   * Parameter: username: The user that I wish to add to a group.
+   * Parameter: group: The group that I wish to add the user to.
+  */
+
   app.get('/server/addUserToGroup', (req, res) => {
     const decoder = new StringDecoder('utf8');
     var isUser =0;

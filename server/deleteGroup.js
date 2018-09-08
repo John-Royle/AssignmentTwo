@@ -2,6 +2,11 @@ const groupClass = require('./GroupClass.js')
 
 module.exports = function(app,fs){
 
+  /* Deletes a group file.
+   * Paramater: group: The group file that I wish delete.
+  */
+
+
   app.get('/server/deleteGroup', (req, res) => {
     var isUser =0;
     var userObj;

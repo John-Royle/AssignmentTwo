@@ -2,6 +2,11 @@ const person = require('./Person.js')
 
 module.exports = function(app,fs){
 
+
+  /* Deletes a user from the Person object.
+   * Parameter: username: The user that I wish to delete from the Person object.
+  */
+
   app.get('/server/delete', (req, res) => {
     var isUser =0;
     var userObj;

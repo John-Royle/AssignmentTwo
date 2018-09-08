@@ -7,7 +7,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./controlpanel.component.css']
 })
 export class ControlpanelComponent implements OnInit {
-rooms = [];
+
 usernameNewUser:string ='';
 passwordNewUser:string ='';
 groupNewUser:String = '';
@@ -29,7 +29,7 @@ deleteUserFromChannelName:String = '';
 userDeleteFromChannelChannelName:String = '';
 
 
-
+userID:Number = 0;
 
 
 
@@ -41,11 +41,8 @@ userDeleteFromChannelChannelName:String = '';
 
   ngOnInit() {
 
-  this.rooms.push("testRoomOne");
-  this.rooms.push("testRoomTwo");
-  this.rooms.push("testRoomThree");
-  this.rooms.push("testRoomFour");
-
+  if (sessionStorage.getItem("id") !== null)
+    this.userID = parseInt(sessionStorage.getItem("id"));
   }
 
   createNewUser(event) {

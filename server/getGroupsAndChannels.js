@@ -5,6 +5,11 @@ const {StringDecoder} = require('string_decoder');
 
 module.exports = function(app,fs){
 
+  /* Gets a list of groups and channels that a user has access to.
+   * Parameter: username: The user of the groups and channels that I wish to display.
+  */
+
+
   app.get('/server/getGroupsAndChannels', (req, res) => {
     const decoder = new StringDecoder('utf8');
     var isUser =0;

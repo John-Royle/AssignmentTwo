@@ -4,6 +4,12 @@ const {StringDecoder} = require('string_decoder');
 
 module.exports = function(app,fs){
 
+
+  /* Removes access to the Group of a specified user.
+   * Parameter: username: The user that I wish to deny access to the specified group.
+   * Parameter: group: The group that I wish deny access to the specified user.
+  */
+
   app.get('/server/deleteUserFromGroup', (req, res) => {
     const decoder = new StringDecoder('utf8');
     var isUser =0;

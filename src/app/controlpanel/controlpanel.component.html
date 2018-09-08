@@ -1,15 +1,15 @@
 
 
 
-<div>Super User</div>
-<div>Create a new user
+<div *ngIf="userID > 1">Super User
+<div>Create a new user</div>
 <form (submit)="createNewUser($event)">
   <input type="email" placeholder="Username" [(ngModel)]="usernameNewUser" name="username" id="usernameNewUser">
   <input type="password" placeholder="Password" [(ngModel)]="passwordNewUser" name="password" id="passwordNewUser">
   <input type="text" placeholder="Group" [(ngModel)]="groupNewUser" name="group" id="groupNewUser">
   <button type="submit">Submit</button>
 </form>
-</div>
+
 
 <div>Remove a user
   <form (submit)="removeUser($event)">
@@ -27,8 +27,8 @@
   </form>
 </div>
 
-<div>Admin User</div>
-<div>Create a new group
+<div *ngIf="userID > 0">Admin User
+<div>Create a new group </div>
   <form (submit)="createGroup($event)">
     <input type="group" placeholder="Group" [(ngModel)]="groupnameNewGroup" name="groupname" id="groupnameNewGroup">
     <button type="submit">Submit</button>
@@ -91,4 +91,5 @@
     <input type="group" placeholder="Group" [(ngModel)]="groupNameAdminOfGroup" name="groupname" id="groupNameAdminOfGroup">
     <button type="submit">Submit</button>
   </form>
+</div>
 </div>
