@@ -22,15 +22,15 @@ module.exports = function(app,fs){
           if (err) {
             res.send({'username':uname, 'success':false});
           } else {
-            let hello = new person(null)
-            hello.loadFromFile(JSON.parse(decoder.write(data)));
+            let tempPerson = new person(null)
+            tempPerson.loadFromFile(JSON.parse(decoder.write(data)));
             //make sure the group exists
             fs.readFile('./server/groups/' + group, (err, data) => {
               if (err){
                 res.send({'group':group, 'success':false});
               }
-              if (hello.addToGroup(group)) {
-                hello.save(fs);
+              if (tempPerson.addToGroup(group)) {
+                tempPerson.save(fs);
               }
             });
 

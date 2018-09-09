@@ -21,10 +21,10 @@ module.exports = function(app,fs){
           if (err) {
             res.send({'username':uname, 'success':false});
           } else {
-            let hello = new person(null)
-            hello.loadFromFile(JSON.parse(decoder.write(data)));
-            if (hello.addChannel(channel)) {
-              hello.save(fs);
+            let tempPerson = new person(null)
+            tempPerson.loadFromFile(JSON.parse(decoder.write(data)));
+            if (tempPerson.addChannel(channel)) {
+              tempPerson.save(fs);
             }
 
             };

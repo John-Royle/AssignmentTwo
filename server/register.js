@@ -3,6 +3,11 @@ var id = 1;
 
 module.exports = function(app,fs){
 
+  /* Adds a user to the Person object.
+   * Parameter: username: The user that I wish to delete from the Person object.
+   * Parameter: password: The password that I wish to add to the Person object.
+   * Parameter: group: The group that I wish to add to the Person object.
+  */
   app.get('/server/register', (req, res) => {
     var isUser =0;
     var userObj;
@@ -11,10 +16,6 @@ module.exports = function(app,fs){
     var passw = req.query.password;
     var group = req.query.group;
 
-
-
-    console.log("This"+uname);
-    //
     var exists = false;
     fs.readdir('./server/users/', (err, files)=> {
       files.forEach(file=> {
@@ -26,44 +27,14 @@ module.exports = function(app,fs){
       if (exists) {
         res.send({'username':uname,'success':false});
       } else {
-        let hello = new person(id, uname, passw, group)
+        let tempPerson = new person(id, uname, passw, group)
         id += 1;
-        hello.save(fs);
+        tempPerson.save(fs);
 
         res.send({'username':uname, 'success':true});
       }
     })
 
-
-
-
-
-    /*fs.readFile('server/users.json','utf-8', function(err, data) {
-      if (err) {
-        console.log(err);
-      } else {
-
-        userObj = JSON.parse(data);
-        for (let i=0;i<userObj.length;i++) {
-          if (userObj[i].name == uname) {
-            isUser = 1;
-          }
-      }
-      if (isUser > 0) {
-        console.log("made it to doesnt exist");
-        res.send({'username':'','success':false});
-      } else {
-        userObj.push({'name':uname});
-        var newdata = JSON.stringify(userObj);
-        fs.writeFile('server/users.json',newdata,'utf-8',function(err){
-          if (err) throw err;
-          res.send({'username':uname,'success':true});
-        });
-      }
-
-      }
-
-    });*/
 
   });
 

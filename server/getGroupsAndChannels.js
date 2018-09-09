@@ -9,7 +9,6 @@ module.exports = function(app,fs){
    * Parameter: username: The user of the groups and channels that I wish to display.
   */
 
-
   app.get('/server/getGroupsAndChannels', (req, res) => {
     const decoder = new StringDecoder('utf8');
     var isUser =0;
@@ -22,17 +21,14 @@ module.exports = function(app,fs){
           if (err) {
             res.send({'username':uname, 'success':false});
           } else {
-            let user = new person(null)
-            user.loadFromFile(JSON.parse(decoder.write(data)));
-            for (let i = 0; i < user.groups.length; i++) {
-              let groupName = user.groups[i]
+            let tempPerson = new person(null)
+            tempPerson.loadFromFile(JSON.parse(decoder.write(data)));
+            for (let i = 0; i < tempPerson.groups.length; i++) {
+              let groupName = tempPerson.groups[i]
               let group = new groupClass(null);
               group.loadFromFile(JSON.parse(decoder.write(fs.readFileSync('./server/groups/' + groupName))));
-              toReturn.groups.push(user.checkAllowedChannels(group));
-              console.log("ReadSync done")
+              toReturn.groups.push(tempPerson.checkAllowedChannels(group));
             }
-
-
             };
           res.send({'username':uname, 'success':toReturn});
         });

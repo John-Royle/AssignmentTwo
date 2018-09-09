@@ -1,6 +1,10 @@
 module.exports = class GroupClass {
 
-
+  /* Constructor for the GroupClass class.
+   * Parameter: id: The id (not compulsory) of the user I wish to make group admin of a specified group.
+   * Parameter: name: The name of the user I wish to make group admin of a specified group.
+   * Parameter: channel: The name of a channel that belongs to a specified group.
+  */
   constructor(id, name, channel) {
     if (id === null) {
       return;
@@ -12,8 +16,6 @@ module.exports = class GroupClass {
     this.admins = [];
     this.admins.push("super");
 
-    console.log(this);
-
   }
 
   loadFromFile(save) {
@@ -21,13 +23,15 @@ module.exports = class GroupClass {
     this.name = save.name;
     this.channel = save.channel;
     this.admins = save.admins;
-    console.log(this);
   }
+
+  /* Adds a user to the Group Admin array.
+   * Parameter: admin: The name of the user I wish to make group admin of a specified group.
+  */
 
   addAdmin(admin) {
     for (let i = 0; i < this.admins.length; i ++) {
       if (this.admins[i] === admin) {
-        console.log("got here");
         return false;
       }
     }
@@ -35,16 +39,19 @@ module.exports = class GroupClass {
     return true;
   }
 
+  /* Adds channel to the Channel array.
+   * Parameter: channel: The name of the channel I wish to add to a specified group.
+  */
   addChannelToGroup(channel) {
     for (let i = 0; i < this.channel.length; i ++) {
       if (this.channel[i] === channel) {
-        console.log("got here");
         return false;
       }
     }
     this.channel.push(channel);
     return true;
   }
+
 
   save(fs) {
 

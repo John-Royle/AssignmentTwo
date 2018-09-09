@@ -6,16 +6,12 @@ module.exports = function(app,fs){
   /* Deletes a user from the Person object.
    * Parameter: username: The user that I wish to delete from the Person object.
   */
-
   app.get('/server/delete', (req, res) => {
     var isUser =0;
     var userObj;
 
     var uname = req.query.username;
     var deleteFile = '';
-
-    console.log("This"+uname);
-    //
     var exists = false;
     fs.readdir('./server/users/', (err, files)=> {
       files.forEach(file=> {
@@ -27,9 +23,7 @@ module.exports = function(app,fs){
         }
       })
       if (exists) {
-        //res.send({'username':uname,'success':false});
         res.send({'username':uname, 'success':true});
-        console.log(deleteFile);
         fs.unlink('./server/users/'+deleteFile,(err) => {
           if(err){
             console.log(err);

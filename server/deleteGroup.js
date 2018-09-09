@@ -5,8 +5,6 @@ module.exports = function(app,fs){
   /* Deletes a group file.
    * Paramater: group: The group file that I wish delete.
   */
-
-
   app.get('/server/deleteGroup', (req, res) => {
     var isUser =0;
     var userObj;
@@ -14,8 +12,6 @@ module.exports = function(app,fs){
     var group = req.query.group;
     var deleteFile = '';
 
-    console.log("This"+group);
-    //
     var exists = false;
     fs.readdir('./server/groups/', (err, files)=> {
       files.forEach(file=> {
@@ -27,9 +23,7 @@ module.exports = function(app,fs){
         }
       })
       if (exists) {
-        //res.send({'username':uname,'success':false});
         res.send({'group':group, 'success':true});
-        console.log(deleteFile);
         fs.unlink('./server/groups/'+deleteFile,(err) => {
           if(err){
             console.log(err);

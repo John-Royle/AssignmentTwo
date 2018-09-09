@@ -5,7 +5,6 @@ const {StringDecoder} = require('string_decoder');
  * Parameter: username: The user that I wish to delete from a group.
  * Parameter: channelname: The channel that I wish deny access to the specified user.
 */
-
 module.exports = function(app,fs){
 
   app.get('/server/deleteUserFromChannel', (req, res) => {
@@ -21,10 +20,10 @@ module.exports = function(app,fs){
           if (err) {
             res.send({'username':uname, 'success':false});
           } else {
-            let hello = new person(null)
-            hello.loadFromFile(JSON.parse(decoder.write(data)));
-            if (hello.deleteChannel(channel)) {
-              hello.save(fs);
+            let tempPerson = new person(null)
+            tempPerson.loadFromFile(JSON.parse(decoder.write(data)));
+            if (tempPerson.deleteChannel(channel)) {
+              tempPerson.save(fs);
             }
 
             };

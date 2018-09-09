@@ -5,6 +5,11 @@ const {StringDecoder} = require('string_decoder');
 
 module.exports = function(app,fs){
 
+  /* Makes a specified user a group admin of a group.
+   * Parameter: username: The user I wish to make the group admin.
+   * Parameter: group: The specified group I wish the user to be the group admin of.
+  */
+
   app.get('/server/groupAdminOfGroup', (req, res) => {
     const decoder = new StringDecoder('utf8');
     var isUser =0;
@@ -13,11 +18,6 @@ module.exports = function(app,fs){
     var uname = req.query.username;
     var group = req.query.group;
 
-
-
-    //console.log("This"+uname);
-    //console.log("This"+group);
-    //
     var exists = false;
 
 
@@ -25,11 +25,11 @@ module.exports = function(app,fs){
           if (err) {
             res.send({'username':uname, 'success':false});
           } else {
-            let hello = new person(null)
-            hello.loadFromFile(JSON.parse(decoder.write(data)));
-            if (hello.id === 0) {
-              hello.changeUserType(1);
-              hello.save(fs);
+            let tempPerson = new person(null)
+            tempPerson.loadFromFile(JSON.parse(decoder.write(data)));
+            if (tempPerson.id === 0) {
+              tempPerson.changeUserType(1);
+              tempPerson.save(fs);
             }
             fs.readFile('./server/groups/' + group, (err, data) => {
               if (err) {

@@ -20,11 +20,9 @@ module.exports = function(app,fs){
       if (exists) {
         res.send({'group':group,'success':false});
       } else {
-        console.log("This bit")
         let hello = new groupClass(id, group, null);
         id += 1;
         hello.save(fs);
-
         res.send({'group':group, 'success':true});
       }
     })

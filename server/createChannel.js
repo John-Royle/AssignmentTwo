@@ -8,7 +8,6 @@ module.exports = function(app,fs){
    * Parameter: channelname: The channel that I wish to add to a group.
    * Parameter: group: The group that I wish to add the channel to.
   */
-
   app.get('/server/createChannel', (req, res) => {
     const decoder = new StringDecoder('utf8');
     var isUser =0;
@@ -17,10 +16,6 @@ module.exports = function(app,fs){
     var channelname = req.query.channelname;
     var group = req.query.group;
 
-
-
-
-            //make sure the group exists
       fs.readFile('./server/groups/' + group, (err, data) => {
         if (err){
           res.send({'group':group, 'success':false});

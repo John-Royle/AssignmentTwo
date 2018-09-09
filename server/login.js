@@ -13,9 +13,9 @@ module.exports = function(app,fs){
           if (err) {
             res.send({'username':uname, 'success':false});
           } else {
-            let hello = new person(null)
-            hello.loadFromFile(JSON.parse(decoder.write(data)));
-            res.send({'username':uname, 'success':true, 'type': hello.userType});
+            let tempPerson = new person(null)
+            tempPerson.loadFromFile(JSON.parse(decoder.write(data)));
+            res.send({'username':uname, 'success':true, 'type': tempPerson.userType});
             };
 
         });
