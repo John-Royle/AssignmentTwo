@@ -13,6 +13,10 @@ rooms = [];
 
   }
 
+  /* Runs an asyncronous fetch to get the list of channels and groups that a specified user can see.
+   * Parameter: url: The url to go to.
+   * Parameter: set: The function pointer.
+  */
   fetchChannels(url, set){
     fetch(url)
       .then(response => {return response.json()})
@@ -32,6 +36,9 @@ rooms = [];
       })
   }
 
+  /* Sets the groups and channels.
+   * Parameter: data: Takes in data from the fetch.
+  */
   setChannels(data) {
     for (let i = 0; i < data.length; i++){
       this.rooms.push("Group:");
