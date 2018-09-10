@@ -25,7 +25,9 @@ module.exports = class Person {
     this.channels = [];
 
   }
-
+  /* Takes in a json object created from a file bearing the name of the object. Takes the objects from that json object and applies it to itself.
+   * Parameter: save: The json replresentation of this class.
+  */
   loadFromFile(save) {
     this.id = save.id;
     this.name = save.name;
@@ -76,6 +78,9 @@ module.exports = class Person {
     return false;
   }
 
+  /* Compares the group's channels with this object's own channels. Returns the list of matching channels.
+   * Parameter: group: The name of the group that I am comparing it to.
+  */
   checkAllowedChannels(group){
     let toReturn = {"GroupName":group.name, "channels": []}
     for (let i = 0; i < this.channels.length; i++){

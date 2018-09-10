@@ -13,12 +13,11 @@ rooms = [];
 
   }
 
-  hello(url, set){
+  fetchChannels(url, set){
     fetch(url)
       .then(response => {return response.json()})
       .then(myJson => {
         let data = [];
-        console.log(myJson);
         for (let i = 0; i < myJson.success.groups.length; i++) {
           let group = {"Name": myJson.success.groups[i].GroupName, "Channels":[]};
 
@@ -29,7 +28,6 @@ rooms = [];
           data.push(group);
 
         }
-        console.log(data);
         set(data);
       })
   }
@@ -60,7 +58,7 @@ rooms = [];
 
   let url = '/server/getGroupsAndChannels?username=' + channeluser;
 
-  this.hello(url, set);
+  this.fetchChannels(url, set);
 
 
   }

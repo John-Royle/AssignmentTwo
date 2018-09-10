@@ -18,6 +18,9 @@ module.exports = class GroupClass {
 
   }
 
+  /* Takes in a json object created from a file bearing the name of the object. Takes the objects from that json object and applies it to itself.
+   * Parameter: save: The json replresentation of this class.
+  */
   loadFromFile(save) {
     this.id = save.id;
     this.name = save.name;
@@ -52,7 +55,9 @@ module.exports = class GroupClass {
     return true;
   }
 
-
+  /* Deletes a file if it exists and saves this class into the file system.
+   * Parameter: fs: The filesystem object provided by node.
+  */
   save(fs) {
 
     let path = './server/groups/' + this.name;
