@@ -7,7 +7,6 @@ import * as io from 'socket.io-client';
 })
 export class SocketService {
  private url = "http://localhost:3000/";
- //private url = "http://localhost:3000";
  private socket;
  constructor() { }
  sendMessage(message){

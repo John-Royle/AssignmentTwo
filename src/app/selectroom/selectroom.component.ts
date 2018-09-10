@@ -51,15 +51,12 @@ rooms = [];
   ngOnInit() {
 
 
-    //this.router.navigateByUrl('/chat');
   let set = this.setChannels.bind(this);
   let channeluser = sessionStorage.getItem("username");
 
   if (channeluser === null) {
     channeluser = "sam";
   }
-
-
 
   let url = '/server/getGroupsAndChannels?username=' + channeluser;
 
