@@ -104,7 +104,44 @@ Adds a user to the Person object.
 
 ## Angular Architecture
 
+Channelhistory
+Component - Displays a page that shows nothing at this point as it is not required to show 
+actual channels.
 
+Services - None used at this point of program.
+
+controlpanel
+Component - Provides a list of options for the users, most of which can only be seen if 
+the user is a super user or admin user. Provides a link between the server and the
+web interface by way of forms and related functions.
+
+Services - None used at this point of program.
+
+login
+Component - Provides options for a user to login. Provides a link between the server and 
+the web interface by way of a form and related functions.
+
+Services - None used at this point of program.
+
+logout
+Component - Deletes user information and redirects to the login page.
+
+Services - None used at this point of program.
+
+menu
+Component - Provides a list of links to the other component pages.
+
+Services - None used at this point of program.
+
+notfound
+Component - Just a simple 404 page.
+
+Services - None used at this point of program.
+
+selectroom
+Component - Provides a list of groups and associated channels for a specified user.
+
+Services - None used at this point of program.
 
 
 
