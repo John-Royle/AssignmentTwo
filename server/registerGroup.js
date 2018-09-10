@@ -3,6 +3,9 @@ var id = 1;
 
 module.exports = function(app,fs){
 
+  /* Adds a user to the Person object.
+   * Parameter: group: The group that I wish to add to the GroupClass object.
+  */
   app.get('/server/registerGroup', (req, res) => {
     var isUser =0;
     var userObj;

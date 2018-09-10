@@ -473,6 +473,11 @@ var ControlpanelComponent = /** @class */ (function () {
         if (sessionStorage.getItem("id") !== null)
             this.userID = parseInt(sessionStorage.getItem("id"));
     };
+    /* Adds a user to the Person object.
+     * Parameter: usernameNewUser: The user that I wish to add to the Person object.
+     * Parameter: passwordNewUser: The password that I wish to add to the Person object.
+     * Parameter: groupNewUser: The group that I wish to add to the Person object.
+    */
     ControlpanelComponent.prototype.createNewUser = function (event) {
         console.log(event);
         var username = this.usernameNewUser;
@@ -491,6 +496,9 @@ var ControlpanelComponent = /** @class */ (function () {
             console.log(JSON.stringify(myJson));
         });
     };
+    /* Deletes a user in the Person object.
+     * Parameter: usernameRemoveuser: The user that I wish to add to the Person object.
+    */
     ControlpanelComponent.prototype.removeUser = function ($event) {
         console.log("This remove User Log");
         var username = this.usernameRemoveuser;
@@ -503,10 +511,11 @@ var ControlpanelComponent = /** @class */ (function () {
             console.log(JSON.stringify(myJson));
         });
     };
+    /* Adds a group to the GroupClass object.
+     * Parameter: groupnameNewGroup: The group name that I wish to add to the GroupClass object.
+    */
     ControlpanelComponent.prototype.createGroup = function (event) {
-        console.log(event);
         var group = this.groupnameNewGroup;
-        console.log(group);
         var url = '/server/registerGroup?group=' + group;
         fetch(url)
             .then(function (response) {
@@ -517,6 +526,9 @@ var ControlpanelComponent = /** @class */ (function () {
             console.log(JSON.stringify(myJson));
         });
     };
+    /* Deletes a group in the GroupClass object.
+     * Parameter: groupnameDeleteGroup: The group name that I wish to delete from the GroupClass object.
+    */
     ControlpanelComponent.prototype.deleteGroup = function (event) {
         var group = this.groupnameDeleteGroup;
         console.log(group);
@@ -528,6 +540,10 @@ var ControlpanelComponent = /** @class */ (function () {
             console.log(JSON.stringify(myJson));
         });
     };
+    /* Changes the status of a user to Group Admin of a specified group.
+     * Parameter: usernameMakeGroupAdminOfGroup: The user that I wish to make Group Admin of a specified group.
+     * Parameter: groupNameAdminOfGroup: The group name that I wish the specified user to be Group Admin of.
+    */
     ControlpanelComponent.prototype.makeUserGroupAdminOfGroup = function (event) {
         var username = this.usernameMakeGroupAdminOfGroup;
         var group = this.groupNameAdminOfGroup;
@@ -541,6 +557,9 @@ var ControlpanelComponent = /** @class */ (function () {
             console.log(JSON.stringify(myJson));
         });
     };
+    /* Changes the status of a user to Super Admin.
+     * Parameter: usernameMakeSuperUser: The user that I wish to make Super Admin.
+    */
     ControlpanelComponent.prototype.makeUserSuperAdmin = function (event) {
         var username = this.usernameMakeSuperUser;
         var url = '/server/makeSuper?username=' + username;
@@ -553,6 +572,10 @@ var ControlpanelComponent = /** @class */ (function () {
             console.log(JSON.stringify(myJson));
         });
     };
+    /* Adds a specified user to a group.
+     * Parameter: usernameAddUserToGroup: The specified user that I wish to add to the group.
+     * Parameter: groupnameNewGroup: The group name that I wish to add the specified user to.
+    */
     ControlpanelComponent.prototype.addUserToGroup = function (event) {
         var username = this.usernameAddUserToGroup;
         var group = this.groupAddUserToGroup;
@@ -566,6 +589,10 @@ var ControlpanelComponent = /** @class */ (function () {
             console.log(JSON.stringify(myJson));
         });
     };
+    /* Deletes a specified user from a group.
+     * Parameter: usernameDeleteUserFromGroup: The specified user that I wish to delete from the group.
+     * Parameter: deleteAUserFromGroup: The group name that I wish to delete the specified user from.
+    */
     ControlpanelComponent.prototype.deleteUserFromGroupFunc = function (event) {
         var username = this.usernameDeleteUserFromGroup;
         var group = this.deleteAUserFromGroup;
@@ -579,6 +606,10 @@ var ControlpanelComponent = /** @class */ (function () {
             console.log(JSON.stringify(myJson));
         });
     };
+    /* Adds a channel to a specified group.
+     * Parameter: channelnameAddChannel: The specified channel that I wish to add to the group.
+     * Parameter: groupChannelToGroup: The group name that I wish to add the specified channel to.
+    */
     ControlpanelComponent.prototype.addchannelToGroup = function ($event) {
         var channelname = this.channelnameAddChannel;
         var group = this.groupChannelToGroup;
@@ -592,10 +623,13 @@ var ControlpanelComponent = /** @class */ (function () {
             console.log(JSON.stringify(myJson));
         });
     };
+    /* Adds a specified user to a channel.
+     * Parameter: addUserToChannel: The specified user that I wish to add to the channel.
+     * Parameter: channelAddUserChannel: The channel name that I wish to add the specified user to.
+    */
     ControlpanelComponent.prototype.addNewUserToChannel = function ($event) {
         var channeluser = this.addUserToChannel;
         var channelname = this.channelAddUserChannel;
-        console.log("Hello from Add to Channel");
         var url = '/server/addUserToChannel?username=' + channeluser + '&channelname=' + channelname;
         fetch(url)
             .then(function (response) {
@@ -606,10 +640,13 @@ var ControlpanelComponent = /** @class */ (function () {
             console.log(JSON.stringify(myJson));
         });
     };
+    /* Deletes a specified user from a channel.
+     * Parameter: deleteUserFromChannelName: The specified user that I wish to delete from the channel.
+     * Parameter: userDeleteFromChannelChannelName: The channel name that I wish to delete the specified user from.
+    */
     ControlpanelComponent.prototype.deleteUserFromChannel = function (event) {
         var channeluser = this.deleteUserFromChannelName;
         var channelname = this.userDeleteFromChannelChannelName;
-        console.log("Hello from Delete to Channel");
         var url = '/server/deleteUserFromChannel?username=' + channeluser + '&channelname=' + channelname;
         fetch(url)
             .then(function (response) {

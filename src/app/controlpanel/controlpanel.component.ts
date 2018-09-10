@@ -28,12 +28,7 @@ channelAddUserChannel:String = '';
 deleteUserFromChannelName:String = '';
 userDeleteFromChannelChannelName:String = '';
 
-
 userID:Number = 0;
-
-
-
-
 
   constructor(private router:Router) {
     router.navigateByUrl('/controlpanel');
@@ -45,6 +40,11 @@ userID:Number = 0;
     this.userID = parseInt(sessionStorage.getItem("id"));
   }
 
+  /* Adds a user to the Person object.
+   * Parameter: usernameNewUser: The user that I wish to add to the Person object.
+   * Parameter: passwordNewUser: The password that I wish to add to the Person object.
+   * Parameter: groupNewUser: The group that I wish to add to the Person object.
+  */
   createNewUser(event) {
     console.log(event);
 
@@ -67,6 +67,9 @@ userID:Number = 0;
       });
   }
 
+  /* Deletes a user in the Person object.
+   * Parameter: usernameRemoveuser: The user that I wish to add to the Person object.
+  */
   removeUser($event) {
   console.log("This remove User Log");
     let username = this.usernameRemoveuser;
@@ -83,11 +86,12 @@ userID:Number = 0;
 
   }
 
+  /* Adds a group to the GroupClass object.
+   * Parameter: groupnameNewGroup: The group name that I wish to add to the GroupClass object.
+  */
   createGroup(event) {
-    console.log(event);
 
     let group = this.groupnameNewGroup
-    console.log(group);
 
     let url = '/server/registerGroup?group=' + group;
     fetch(url)
@@ -100,6 +104,9 @@ userID:Number = 0;
       });
   }
 
+  /* Deletes a group in the GroupClass object.
+   * Parameter: groupnameDeleteGroup: The group name that I wish to delete from the GroupClass object.
+  */
   deleteGroup(event) {
 
     let group = this.groupnameDeleteGroup;
@@ -116,6 +123,10 @@ userID:Number = 0;
 
   }
 
+  /* Changes the status of a user to Group Admin of a specified group.
+   * Parameter: usernameMakeGroupAdminOfGroup: The user that I wish to make Group Admin of a specified group.
+   * Parameter: groupNameAdminOfGroup: The group name that I wish the specified user to be Group Admin of.
+  */
   makeUserGroupAdminOfGroup(event) {
     let username = this.usernameMakeGroupAdminOfGroup;
     let group = this.groupNameAdminOfGroup;
@@ -131,6 +142,9 @@ userID:Number = 0;
       });
   }
 
+  /* Changes the status of a user to Super Admin.
+   * Parameter: usernameMakeSuperUser: The user that I wish to make Super Admin.
+  */
   makeUserSuperAdmin(event) {
     let username = this.usernameMakeSuperUser;
 
@@ -146,8 +160,11 @@ userID:Number = 0;
 
   }
 
+  /* Adds a specified user to a group.
+   * Parameter: usernameAddUserToGroup: The specified user that I wish to add to the group.
+   * Parameter: groupnameNewGroup: The group name that I wish to add the specified user to.
+  */
   addUserToGroup(event){
-
   let username = this.usernameAddUserToGroup;
   let group = this.groupAddUserToGroup;
 
@@ -163,6 +180,10 @@ userID:Number = 0;
 
   }
 
+  /* Deletes a specified user from a group.
+   * Parameter: usernameDeleteUserFromGroup: The specified user that I wish to delete from the group.
+   * Parameter: deleteAUserFromGroup: The group name that I wish to delete the specified user from.
+  */
   deleteUserFromGroupFunc(event) {
   let username = this.usernameDeleteUserFromGroup;
   let group = this.deleteAUserFromGroup;
@@ -179,6 +200,10 @@ userID:Number = 0;
 
   }
 
+  /* Adds a channel to a specified group.
+   * Parameter: channelnameAddChannel: The specified channel that I wish to add to the group.
+   * Parameter: groupChannelToGroup: The group name that I wish to add the specified channel to.
+  */
   addchannelToGroup($event) {
 
   let channelname = this.channelnameAddChannel;
@@ -196,10 +221,14 @@ userID:Number = 0;
 
   }
 
+  /* Adds a specified user to a channel.
+   * Parameter: addUserToChannel: The specified user that I wish to add to the channel.
+   * Parameter: channelAddUserChannel: The channel name that I wish to add the specified user to.
+  */
   addNewUserToChannel($event) {
   let channeluser = this.addUserToChannel;
   let channelname = this.channelAddUserChannel;
-  console.log("Hello from Add to Channel");
+
   let url = '/server/addUserToChannel?username=' + channeluser + '&channelname=' + channelname;
   fetch(url)
     .then(function(response){
@@ -212,12 +241,16 @@ userID:Number = 0;
 
   }
 
+
+  /* Deletes a specified user from a channel.
+   * Parameter: deleteUserFromChannelName: The specified user that I wish to delete from the channel.
+   * Parameter: userDeleteFromChannelChannelName: The channel name that I wish to delete the specified user from.
+  */
   deleteUserFromChannel(event) {
 
   let channeluser = this.deleteUserFromChannelName;
   let channelname = this.userDeleteFromChannelChannelName;
 
-  console.log("Hello from Delete to Channel");
   let url = '/server/deleteUserFromChannel?username=' + channeluser + '&channelname=' + channelname;
   fetch(url)
     .then(function(response){

@@ -8,7 +8,6 @@ const fs = require('fs');
 app.use (bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname,'../dist/my-app2/')));
-//app.use(express.static(__dirname + '/www'));
 require('./routes.js')(app, path);
 require('./auth.js')(app, fs);
 require('./roomAuth.js')(app, fs, io);
