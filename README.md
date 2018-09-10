@@ -5,7 +5,21 @@
 
 ## Git Hub
 
+I simply added all my files, commit them with a relevent message and then pushed it 
+straight to the master branch due to time constraints.
 
+Had I had more time I would have created a new branch for each new piece of functionality
+and merged that branch with the master branch.
+
+Create new branch:
+git branch nameOfTestBranch
+
+Use the new branch:
+git checkout nameOfBranch
+
+Then merged the test branch with the master branch:
+git checkout master
+git merge nameOfBranch
 
 ## Data Structures
 
@@ -108,40 +122,41 @@ Channelhistory
 Component - Displays a page that shows nothing at this point as it is not required to show 
 actual channels.
 
-Services - None used at this point of program.
+Services - None used at this point of program (User Authentication etc).
 
 controlpanel
 Component - Provides a list of options for the users, most of which can only be seen if 
 the user is a super user or admin user. Provides a link between the server and the
 web interface by way of forms and related functions.
 
-Services - None used at this point of program.
+Services - None used at this point of program (User Authentication etc).
+
 
 login
 Component - Provides options for a user to login. Provides a link between the server and 
 the web interface by way of a form and related functions.
 
-Services - None used at this point of program.
+Services - None used at this point of program (User Authentication etc).
 
 logout
 Component - Deletes user information and redirects to the login page.
 
-Services - None used at this point of program.
+Services - None used at this point of program (User Authentication etc).
 
 menu
 Component - Provides a list of links to the other component pages.
 
-Services - None used at this point of program.
+Services - None used at this point of program (User Authentication etc).
 
 notfound
 Component - Just a simple 404 page.
 
-Services - None used at this point of program.
+Services - None used at this point of program (User Authentication etc).
 
 selectroom
 Component - Provides a list of groups and associated channels for a specified user.
 
-Services - None used at this point of program.
+Services - None used at this point of program (User Authentication etc).
 
 
 

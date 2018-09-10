@@ -483,9 +483,6 @@ var ControlpanelComponent = /** @class */ (function () {
         var username = this.usernameNewUser;
         var password = this.passwordNewUser;
         var group = this.groupNewUser;
-        console.log(username);
-        console.log(password);
-        console.log(group);
         var url = '/server/register?username=' + username + '&password=' + password + '&group=' + group;
         fetch(url)
             .then(function (response) {
@@ -500,9 +497,7 @@ var ControlpanelComponent = /** @class */ (function () {
      * Parameter: usernameRemoveuser: The user that I wish to add to the Person object.
     */
     ControlpanelComponent.prototype.removeUser = function ($event) {
-        console.log("This remove User Log");
         var username = this.usernameRemoveuser;
-        console.log(username);
         var url = '/server/delete?username=' + username;
         fetch(url)
             .then(function (response) {
@@ -1174,6 +1169,10 @@ var SelectroomComponent = /** @class */ (function () {
         this.router = router;
         this.rooms = [];
     }
+    /* Runs an asyncronous fetch to get the list of channels and groups that a specified user can see.
+     * Parameter: url: The url to go to.
+     * Parameter: set: The function pointer.
+    */
     SelectroomComponent.prototype.fetchChannels = function (url, set) {
         fetch(url)
             .then(function (response) { return response.json(); })
@@ -1189,6 +1188,9 @@ var SelectroomComponent = /** @class */ (function () {
             set(data);
         });
     };
+    /* Sets the groups and channels.
+     * Parameter: data: Takes in data from the fetch.
+    */
     SelectroomComponent.prototype.setChannels = function (data) {
         for (var i = 0; i < data.length; i++) {
             this.rooms.push("Group:");

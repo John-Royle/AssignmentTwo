@@ -52,10 +52,6 @@ userID:Number = 0;
     let password = this.passwordNewUser
     let group = this.groupNewUser
 
-    console.log(username);
-    console.log(password);
-    console.log(group);
-
     let url = '/server/register?username=' + username + '&password=' + password + '&group=' + group;
     fetch(url)
       .then(function(response){
@@ -71,9 +67,7 @@ userID:Number = 0;
    * Parameter: usernameRemoveuser: The user that I wish to add to the Person object.
   */
   removeUser($event) {
-  console.log("This remove User Log");
     let username = this.usernameRemoveuser;
-    console.log(username);
 
     let url = '/server/delete?username=' + username;
 
