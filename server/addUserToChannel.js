@@ -2,7 +2,7 @@ const person = require('./Person.js');
 const {StringDecoder} = require('string_decoder');
 
 
-module.exports = function(app,fs){
+module.exports = function(app,fs, db){
 
   /* Adds a channel to the Person object.
    * Parameter: username: The user that I wish to add a channel to.
@@ -17,22 +17,16 @@ module.exports = function(app,fs){
     var channel = req.query.channelname;
     console.log("Channel got called")
 
-        fs.readFile('./server/users/' + uname, (err, data) => {
-          if (err) {
-            res.send({'username':uname, 'success':false});
-          } else {
-            let tempPerson = new person(null)
-            tempPerson.loadFromFile(JSON.parse(decoder.write(data)));
-            if (tempPerson.addChannel(channel)) {
-              tempPerson.save(fs);
-            }
+    let tempPerson = new person(null)
+    tempPerson.loadFromDB(uname,db)
+    if (tempPerson.name == null) {
+      res.send({'username':uname, 'success':false});
+    } else {
+      if (tempPerson.addChannel(channel)) {
+        tempPerson.saveToDB(db);
+      }
+      res.send({'username':uname, 'success':true});
+    }
 
-            };
-          res.send({'username':uname, 'success':true});
-        });
-
-
-
-      });
-
-  };
+  });
+};

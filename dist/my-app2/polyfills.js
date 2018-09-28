@@ -5474,7 +5474,7 @@ window.global = window;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/johnroyle/Desktop/Semester 9/Software Frameworks/Labs/Assignement One/Angular Labs/src/polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! /Users/johnroyle/Desktop/Semester 9/Software Frameworks/Labs/Assignement Two/Angular Labs/src/polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })

@@ -38,6 +38,48 @@ module.exports = class Person {
 
   }
 
+  saveToDB(db){
+
+    db.collection("Users").findOneAndUpdate({name: this.name},{$set: {name: this.name, passw: this.passw, groups: this.groups, userType: this.userType, channels: this.channels}},{upsert: true},function(err, result){
+      if (err) {
+        console.log(err)
+      }
+      //console.log(result);
+    })
+  }
+
+  setValues(result){
+    //console.log(result);
+    this.name = result.name;
+    this.passw = result.passw;
+    this.groups = result.groups;
+    this.userType = result.userType;
+    this.channels = result.channels;
+  }
+
+  loadFromDB(name, db) {
+    let set = this.setValues.bind(this);
+    await db.collection("Users").findOne({name: name}, function(err, result){
+        if (err) {
+          console.log(err)
+        }
+        //console.log(result.name);
+        if (result != null) {
+          //this.name = result.name;
+          set(result);
+        }
+      });
+
+  }
+
+
+/*
+  db.collection('products').insert( { id: 4, name: "clothes", price: 41.00, type: "small", description: "Fine clothes" }, function(err, res){
+    if (err) throw err;
+    console.log("New Item created");
+  });
+*/
+
   /* Adds a channel to the channels array.
    * Parameter: channel: The name of the channel I wish to add to the specified user.
   */

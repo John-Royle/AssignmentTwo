@@ -1,7 +1,7 @@
 const person = require('./Person.js');
 var id = 1;
 
-module.exports = function(app,fs){
+module.exports = function(app,fs, db){
 
   /* Adds a user to the Person object.
    * Parameter: username: The user that I wish to delete from the Person object.

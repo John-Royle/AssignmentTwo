@@ -32,11 +32,12 @@ rooms = [];
           data.push(group);
 
         }
+
         set(data);
       })
   }
 
-  /* Sets the groups and channels.
+  /* Sets the groups and channels and displays the data.
    * Parameter: data: Takes in data from the fetch.
   */
   setChannels(data) {

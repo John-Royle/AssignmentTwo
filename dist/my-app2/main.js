@@ -417,7 +417,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n\n\n<div *ngIf=\"userID > 1\">Super User\n<div>Create a new user</div>\n<form (submit)=\"createNewUser($event)\">\n  <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameNewUser\" name=\"username\" id=\"usernameNewUser\">\n  <input type=\"password\" placeholder=\"Password\" [(ngModel)]=\"passwordNewUser\" name=\"password\" id=\"passwordNewUser\">\n  <input type=\"text\" placeholder=\"Group\" [(ngModel)]=\"groupNewUser\" name=\"group\" id=\"groupNewUser\">\n  <button type=\"submit\">Submit</button>\n</form>\n\n\n<div>Remove a user\n  <form (submit)=\"removeUser($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameRemoveuser\" name=\"username\" id=\"usernameRemoveuser\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n\n<div>Make a user a super admin\n  <form (submit)=\"makeUserSuperAdmin($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameMakeSuperUser\" name=\"username\" id=\"usernameMakeSuperUser\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div *ngIf=\"userID > 0\">Admin User\n<div>Create a new group </div>\n  <form (submit)=\"createGroup($event)\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupnameNewGroup\" name=\"groupname\" id=\"groupnameNewGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n<div>Add an exisiting user to group\n  <form (submit)=\"addUserToGroup($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameAddUserToGroup\" name=\"username\" id=\"usernameAddUserToGroup\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupAddUserToGroup\" name=\"groupname\" id=\"groupAddUserToGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n<div>Add channel to group\n  <form (submit)=\"addchannelToGroup($event)\">\n    <input type=\"channel\" placeholder=\"Channel\" [(ngModel)]=\"channelnameAddChannel\" name=\"channelname\" id=\"channelnameAddChannel\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupChannelToGroup\" name=\"groupname\" id=\"groupChannelToGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n\n<div>Delete a group\n  <form (submit)=\"deleteGroup($event)\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupnameDeleteGroup\" name=\"groupname\" id=\"groupnameDeleteGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Delete a user from a group\n  <form (submit)=\"deleteUserFromGroupFunc($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameDeleteUserFromGroup\" name=\"username\" id=\"usernameDeleteUserFromGroup\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"deleteAUserFromGroup\" name=\"groupname\" id=\"deleteAUserFromGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Delete a user from a channel\n  <form (submit)=\"deleteUserFromChannel($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"deleteUserFromChannelName\" name=\"username\" id=\"deleteUserFromChannelName\">\n    <input type=\"channel\" placeholder=\"Channel\" [(ngModel)]=\"userDeleteFromChannelChannelName\" name=\"channelname\" id=\"userDeleteFromChannelChannelName\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Add a user to a channel\n  <form (submit)=\"addNewUserToChannel($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"addUserToChannel\" name=\"username\" id=\"addUserToChannel\">\n    <input type=\"channel\" placeholder=\"Channel\" [(ngModel)]=\"channelAddUserChannel\" name=\"channelname\" id=\"channelAddUserChannel\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n\n<div>Make a user a group admin of a group\n  <form (submit)=\"makeUserGroupAdminOfGroup($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameMakeGroupAdminOfGroup\" name=\"username\" id=\"usernameMakeGroupAdminOfGroup\">\n    <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupNameAdminOfGroup\" name=\"groupname\" id=\"groupNameAdminOfGroup\">\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n</div>\n"
+module.exports = "\n\n\n<div *ngIf=\"userID > 1\">Super User\n  <div>Create a new user\n  <form (submit)=\"createNewUser($event)\">\n    <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameNewUser\" name=\"username\" id=\"usernameNewUser\">\n    <input type=\"password\" placeholder=\"Password\" [(ngModel)]=\"passwordNewUser\" name=\"password\" id=\"passwordNewUser\">\n    <input type=\"text\" placeholder=\"Group\" [(ngModel)]=\"groupNewUser\" name=\"group\" id=\"groupNewUser\">\n    <button type=\"submit\">Submit</button>\n  </form>\n  </div>\n\n  <div>Remove a user\n    <form (submit)=\"removeUser($event)\">\n      <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameRemoveuser\" name=\"username\" id=\"usernameRemoveuser\">\n      <button type=\"submit\">Submit</button>\n    </form>\n  </div>\n\n\n\n  <div>Make a user a super admin\n    <form (submit)=\"makeUserSuperAdmin($event)\">\n      <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameMakeSuperUser\" name=\"username\" id=\"usernameMakeSuperUser\">\n      <button type=\"submit\">Submit</button>\n    </form>\n  </div>\n</div>\n\n<div *ngIf=\"userID > 0\">Admin User\n  <div>Create a new group\n    <form (submit)=\"createGroup($event)\">\n      <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupnameNewGroup\" name=\"groupname\" id=\"groupnameNewGroup\">\n      <button type=\"submit\">Submit</button>\n    </form>\n  </div>\n\n\n  <div>Add an exisiting user to group\n    <form (submit)=\"addUserToGroup($event)\">\n      <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameAddUserToGroup\" name=\"username\" id=\"usernameAddUserToGroup\">\n      <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupAddUserToGroup\" name=\"groupname\" id=\"groupAddUserToGroup\">\n      <button type=\"submit\">Submit</button>\n    </form>\n  </div>\n\n\n  <div>Add channel to group\n    <form (submit)=\"addchannelToGroup($event)\">\n      <input type=\"channel\" placeholder=\"Channel\" [(ngModel)]=\"channelnameAddChannel\" name=\"channelname\" id=\"channelnameAddChannel\">\n      <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupChannelToGroup\" name=\"groupname\" id=\"groupChannelToGroup\">\n      <button type=\"submit\">Submit</button>\n    </form>\n  </div>\n\n\n  <div>Delete a group\n    <form (submit)=\"deleteGroup($event)\">\n      <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupnameDeleteGroup\" name=\"groupname\" id=\"groupnameDeleteGroup\">\n      <button type=\"submit\">Submit</button>\n    </form>\n  </div>\n\n  <div>Delete a user from a group\n    <form (submit)=\"deleteUserFromGroupFunc($event)\">\n      <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameDeleteUserFromGroup\" name=\"username\" id=\"usernameDeleteUserFromGroup\">\n      <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"deleteAUserFromGroup\" name=\"groupname\" id=\"deleteAUserFromGroup\">\n      <button type=\"submit\">Submit</button>\n    </form>\n  </div>\n\n  <div>Delete a user from a channel\n    <form (submit)=\"deleteUserFromChannel($event)\">\n      <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"deleteUserFromChannelName\" name=\"username\" id=\"deleteUserFromChannelName\">\n      <input type=\"channel\" placeholder=\"Channel\" [(ngModel)]=\"userDeleteFromChannelChannelName\" name=\"channelname\" id=\"userDeleteFromChannelChannelName\">\n      <button type=\"submit\">Submit</button>\n    </form>\n  </div>\n\n  <div>Add a user to a channel\n    <form (submit)=\"addNewUserToChannel($event)\">\n      <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"addUserToChannel\" name=\"username\" id=\"addUserToChannel\">\n      <input type=\"channel\" placeholder=\"Channel\" [(ngModel)]=\"channelAddUserChannel\" name=\"channelname\" id=\"channelAddUserChannel\">\n      <button type=\"submit\">Submit</button>\n    </form>\n  </div>\n\n  <div>Make a user a group admin of a group\n    <form (submit)=\"makeUserGroupAdminOfGroup($event)\">\n      <input type=\"email\" placeholder=\"Username\" [(ngModel)]=\"usernameMakeGroupAdminOfGroup\" name=\"username\" id=\"usernameMakeGroupAdminOfGroup\">\n      <input type=\"group\" placeholder=\"Group\" [(ngModel)]=\"groupNameAdminOfGroup\" name=\"groupname\" id=\"groupNameAdminOfGroup\">\n      <button type=\"submit\">Submit</button>\n    </form>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -470,8 +470,10 @@ var ControlpanelComponent = /** @class */ (function () {
         router.navigateByUrl('/controlpanel');
     }
     ControlpanelComponent.prototype.ngOnInit = function () {
+        // Show appropriate html based on user type.
         if (sessionStorage.getItem("id") !== null)
             this.userID = parseInt(sessionStorage.getItem("id"));
+        console.log(this.userID);
     };
     /* Adds a user to the Person object.
      * Parameter: usernameNewUser: The user that I wish to add to the Person object.
@@ -606,6 +608,7 @@ var ControlpanelComponent = /** @class */ (function () {
      * Parameter: groupChannelToGroup: The group name that I wish to add the specified channel to.
     */
     ControlpanelComponent.prototype.addchannelToGroup = function ($event) {
+        // Text field input
         var channelname = this.channelnameAddChannel;
         var group = this.groupChannelToGroup;
         var url = '/server/createChannel?channelname=' + channelname + '&group=' + group;
@@ -791,9 +794,11 @@ var LoginComponent = /** @class */ (function () {
         this.form = form;
         this.username = '';
         this.password = '';
+        console.log("Consgructor");
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
+    // Check if server has these login details.
     LoginComponent.prototype.fetchingData = function (url, finish, cannot) {
         fetch(url)
             .then(function (response) { return response.json(); })
@@ -810,7 +815,7 @@ var LoginComponent = /** @class */ (function () {
     /* Alert to inform user that the username or password is incorrect.
     */
     LoginComponent.prototype.falseLogin = function () {
-        alert("Username and Password were incorrect");
+        alert("Username or Password were incorrect");
     };
     /* Sets the local storage variables with username and user type, specified by ID.
      * Parameter: data: The correct username and ID type returned from the server.
@@ -819,19 +824,24 @@ var LoginComponent = /** @class */ (function () {
         if (typeof (Storage) !== "undefined") {
             sessionStorage.setItem("username", data.username);
             sessionStorage.setItem("id", data.type);
+            console.log(sessionStorage.getItem("id"));
+            console.log(sessionStorage.getItem("username"));
+            this.router.navigateByUrl('/controlpanel');
         }
-        console.log(sessionStorage.getItem("id"));
-        console.log(sessionStorage.getItem("username"));
-        this.router.navigateByUrl('/controlpanel');
+        else {
+            alert("Do not sessions, cannot log in");
+        }
     };
     /* Attempts to log the user in.
      * Parameter: event: The event generated by Angular is not used.
     */
     LoginComponent.prototype.loginUser = function (event) {
         event.preventDefault();
+        // Access to all our variables within this class because it's asyncronous.
         var falseBind = this.falseLogin.bind(this);
         var finishBind = this.finishLogin.bind(this);
-        var url = '/server/login?username=' + this.username;
+        // route url to server
+        var url = '/server/login?username=' + this.username + '&password=' + this.password;
         this.fetchingData(url, finishBind, falseBind);
     };
     LoginComponent = __decorate([
@@ -1188,7 +1198,7 @@ var SelectroomComponent = /** @class */ (function () {
             set(data);
         });
     };
-    /* Sets the groups and channels.
+    /* Sets the groups and channels and displays the data.
      * Parameter: data: Takes in data from the fetch.
     */
     SelectroomComponent.prototype.setChannels = function (data) {
@@ -1407,7 +1417,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/johnroyle/Desktop/Semester 9/Software Frameworks/Labs/Assignement One/Angular Labs/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/johnroyle/Desktop/Semester 9/Software Frameworks/Labs/Assignement Two/Angular Labs/src/main.ts */"./src/main.ts");
 
 
 /***/ }),

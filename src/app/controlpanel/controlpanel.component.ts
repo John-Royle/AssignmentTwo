@@ -35,9 +35,10 @@ userID:Number = 0;
   }
 
   ngOnInit() {
-
+  // Show appropriate html based on user type.
   if (sessionStorage.getItem("id") !== null)
     this.userID = parseInt(sessionStorage.getItem("id"));
+    console.log(this.userID);
   }
 
   /* Adds a user to the Person object.
@@ -200,6 +201,7 @@ userID:Number = 0;
   */
   addchannelToGroup($event) {
 
+  // Text field input
   let channelname = this.channelnameAddChannel;
   let group = this.groupChannelToGroup;
 

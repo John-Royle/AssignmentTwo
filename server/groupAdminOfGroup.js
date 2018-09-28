@@ -27,7 +27,7 @@ module.exports = function(app,fs){
           } else {
             let tempPerson = new person(null)
             tempPerson.loadFromFile(JSON.parse(decoder.write(data)));
-            if (tempPerson.id === 0) {
+            if (tempPerson.userType === 0) {
               tempPerson.changeUserType(1);
               tempPerson.save(fs);
             }

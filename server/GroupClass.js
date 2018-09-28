@@ -32,6 +32,47 @@ module.exports = class GroupClass {
    * Parameter: admin: The name of the user I wish to make group admin of a specified group.
   */
 
+
+
+  saveToDB(db){
+
+    db.collection("Groups").findOneAndUpdate({name: this.name},{$set: {name: this.name, channel : this.channel, admins: this.admins}},{upsert: true},function(err, result){
+      if (err) {
+        console.log(err)
+      }
+      //console.log(result);
+    })
+  }
+
+  setValues(result){
+    //console.log(result);
+    this.name = result.name;
+    this.channel = result.channel;
+    this.admins = result.admins;
+  }
+
+  loadFromDB(name, db) {
+    let set = this.setValues.bind(this);
+    db.collection("Groups").findOne({name: name}, function(err, result){
+        if (err) {
+          console.log(err)
+        }
+        //console.log(result.name);
+        if (result != null) {
+          //this.name = result.name;
+          set(result);
+        }
+      });
+
+  }
+
+
+
+
+
+
+
+
   addAdmin(admin) {
     for (let i = 0; i < this.admins.length; i ++) {
       if (this.admins[i] === admin) {
