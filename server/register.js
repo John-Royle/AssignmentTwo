@@ -9,31 +9,23 @@ module.exports = function(app,fs, db){
    * Parameter: group: The group that I wish to add to the Person object.
   */
   app.get('/server/register', (req, res) => {
-    var isUser =0;
-    var userObj;
-
     var uname = req.query.username;
     var passw = req.query.password;
     var group = req.query.group;
 
     var exists = false;
-    fs.readdir('./server/users/', (err, files)=> {
-      files.forEach(file=> {
-            console.log(file.toString()  + uname)
-        if (file.toString() == uname) {
-          exists = true;
-        }
-      })
-      if (exists) {
+    let Person = new person(0, uname, passw, group)
+    console.log(Person)
+    let tempFunction = (res, person, result) => {
+      console.log(result);
+      if (result != null) {
         res.send({'username':uname,'success':false});
       } else {
-        let tempPerson = new person(id, uname, passw, group)
-        id += 1;
-        tempPerson.save(fs);
 
         res.send({'username':uname, 'success':true});
       }
-    })
+    }
+    Person.saveToDB(db, res, tempFunction, Person);
 
 
   });

@@ -34,13 +34,14 @@ module.exports = class GroupClass {
 
 
 
-  saveToDB(db){
+  saveToDB(db, res, callback, group){
 
     db.collection("Groups").findOneAndUpdate({name: this.name},{$set: {name: this.name, channel : this.channel, admins: this.admins}},{upsert: true},function(err, result){
       if (err) {
         console.log(err)
+        callback(res, group, err);
       }
-      //console.log(result);
+      callback(res, group, null);
     })
   }
 
@@ -51,7 +52,7 @@ module.exports = class GroupClass {
     this.admins = result.admins;
   }
 
-  loadFromDB(name, db) {
+  loadFromDB(name, db, group, callback) {
     let set = this.setValues.bind(this);
     db.collection("Groups").findOne({name: name}, function(err, result){
         if (err) {
@@ -61,6 +62,7 @@ module.exports = class GroupClass {
         if (result != null) {
           //this.name = result.name;
           set(result);
+          callback(res, group, result, db);
         }
       });
 

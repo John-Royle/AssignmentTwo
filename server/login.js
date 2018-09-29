@@ -14,12 +14,14 @@ module.exports = function(app,fs, db){
 
     let tempPerson = new person(null);
 
-    let tempFunction = (res, tempPerson) => {
-    console.log(tempPerson);
+    let tempFunction = (res, tempPerson, result, db) => {
+
     if (tempPerson.name == null){
       res.send({'username':uname,'success':false});
     } else {
+        tempPerson.sam = "Yes Please";
 
+        console.log(tempPerson);
       if (tempPerson.name == uname && tempPerson.passw == passw) {
         res.send({'username':uname, 'success':true, 'type': tempPerson.userType});
       } else {

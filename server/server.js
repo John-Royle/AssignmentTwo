@@ -76,9 +76,9 @@ require('./listen.js')(http);
 
 
 const person = require('./Person.js');
-let y = new person(0, "super", "super", "all")
+/*let y = new person(0, "super", "super", "all")
 y.userType = 2;
-y.saveToDB(db)
+y.saveToDB(db)*/
 /*let x = new person(null);
 x.loadFromDB("super",db);
 

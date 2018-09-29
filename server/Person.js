@@ -38,13 +38,15 @@ module.exports = class Person {
 
   }
 
-  saveToDB(db){
+  saveToDB(db, res, callback, person){
 
     db.collection("Users").findOneAndUpdate({name: this.name},{$set: {name: this.name, passw: this.passw, groups: this.groups, userType: this.userType, channels: this.channels}},{upsert: true},function(err, result){
       if (err) {
         console.log(err)
+        callback(res, person, err);
       }
-      //console.log(result);
+      console.log(result);
+      callback(res, person, null);
     })
   }
 
@@ -59,7 +61,8 @@ module.exports = class Person {
 
   loadFromDB(name, db, res, callback, tempPerson) {
     let set = this.setValues.bind(this);
-    db.collection("Users").findOne({name: name}, function(err, result){
+    db.collection("Users").findOne({name: name}, function(err, result) {
+
         if (err) {
           console.log(err)
         }
@@ -67,7 +70,8 @@ module.exports = class Person {
         if (result != null) {
           //this.name = result.name;
           set(result);
-          callback(res, tempPerson);
+          console.log(db);
+          callback(res, tempPerson, result, db);
 
         }
       });
