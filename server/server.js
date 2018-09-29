@@ -75,10 +75,11 @@ require('./socket.js')(app, io, fs, db);
 require('./listen.js')(http);
 
 
-/*const person = require('./Person.js');
+const person = require('./Person.js');
 let y = new person(0, "super", "super", "all")
+y.userType = 2;
 y.saveToDB(db)
-let x = new person(null);
+/*let x = new person(null);
 x.loadFromDB("super",db);
 
 const groupClass = require('./GroupClass.js');

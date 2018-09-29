@@ -14,7 +14,7 @@ module.exports = function(app,fs, db){
 
     let tempPerson = new person(null);
 
-    tempPerson.loadFromDB(uname, db)
+    let tempFunction = (res, tempPerson) => {
     console.log(tempPerson);
     if (tempPerson.name == null){
       res.send({'username':uname,'success':false});
@@ -26,7 +26,8 @@ module.exports = function(app,fs, db){
         res.send({'username':uname,'success':false});
       }
     }
-
+  }
+    tempPerson.loadFromDB(uname, db, res,tempFunction, tempPerson)
   });
 
   };

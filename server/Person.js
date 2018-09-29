@@ -57,9 +57,9 @@ module.exports = class Person {
     this.channels = result.channels;
   }
 
-  loadFromDB(name, db) {
+  loadFromDB(name, db, res, callback, tempPerson) {
     let set = this.setValues.bind(this);
-    await db.collection("Users").findOne({name: name}, function(err, result){
+    db.collection("Users").findOne({name: name}, function(err, result){
         if (err) {
           console.log(err)
         }
@@ -67,6 +67,8 @@ module.exports = class Person {
         if (result != null) {
           //this.name = result.name;
           set(result);
+          callback(res, tempPerson);
+
         }
       });
 
