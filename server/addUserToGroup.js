@@ -29,7 +29,6 @@ function functionTwo(res, group, result, db){
 
 function functionThree(res, tempPerson, result, db){
   console.log("Got to Function Three");
-
   if (result != null) {
     res.send({'Username':"Not Saved", 'success':false});
   } else {
