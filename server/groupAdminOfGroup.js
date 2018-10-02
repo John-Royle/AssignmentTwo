@@ -1,9 +1,48 @@
 const person = require('./Person.js');
 const groupClass = require('./GroupClass.js');
-const {StringDecoder} = require('string_decoder');
+
+const functionOne = function (res, tempPerson, result, db){
+  if (result == null){
+    res.send({'User':"Not Found", 'success':false});
+  } else {
+    tempPerson.groupInternal.loadFromDB(tempPerson.groupName, db, tempPerson.groupInternal, functionTwo, res);
+  }
+
+}
 
 
-module.exports = function(app,fs){
+function functionTwo(res, group, result, db){
+  if (result == null) {
+    res.send({'group':"Not Found", 'success':false});
+  } else {
+
+  group.tempPerson.changeUserType(1);
+  group.tempPerson.saveToDB(db, res, functionThree, group.tempPerson);
+  }
+}
+
+
+function functionThree(res, tempPerson, result, db){
+  console.log("Got to Function Three");
+  if (result != null) {
+    res.send({'Username':"Not Saved", 'success':false});
+  } else {
+    tempPerson.groupInternal.addAdmin(tempPerson.name);
+    tempPerson.groupInternal.saveToDB(db, res, functionFour, tempPerson.groupInternal);
+  }
+}
+
+function functionFour(res, group, err) {
+
+  if (err != null) {
+    res.send({'Group':"Not Saved", 'success':false});
+  } else {
+    res.send({'Username':"Now Admin", 'success':true});
+  }
+
+}
+
+module.exports = function(app,fs,db){
 
   /* Makes a specified user a group admin of a group.
    * Parameter: username: The user I wish to make the group admin.
@@ -11,45 +50,16 @@ module.exports = function(app,fs){
   */
 
   app.get('/server/groupAdminOfGroup', (req, res) => {
-    const decoder = new StringDecoder('utf8');
-    var isUser =0;
-    var userObj;
 
     var uname = req.query.username;
     var group = req.query.group;
 
-    var exists = false;
+    let tempPerson = new person(null);
+    tempPerson.groupInternal = new groupClass(null);
+    tempPerson.groupInternal.tempPerson = tempPerson;
+    tempPerson.groupName = group;
+    tempPerson.loadFromDB(uname, db, res, functionOne, tempPerson);
 
+  });
 
-        fs.readFile('./server/users/' + uname, (err, data) => {
-          if (err) {
-            res.send({'username':uname, 'success':false});
-          } else {
-            let tempPerson = new person(null)
-            tempPerson.loadFromFile(JSON.parse(decoder.write(data)));
-            if (tempPerson.userType === 0) {
-              tempPerson.changeUserType(1);
-              tempPerson.save(fs);
-            }
-            fs.readFile('./server/groups/' + group, (err, data) => {
-              if (err) {
-                res.send({'group':group, 'success':false});
-              } else {
-                let loadedGroup = new groupClass(null)
-                loadedGroup.loadFromFile(JSON.parse(decoder.write(data)));
-                if (loadedGroup.addAdmin(uname)) {
-                  loadedGroup.save(fs);
-                }
-                }
-              });
-            };
-          res.send({'username':uname, 'success':true});
-        });
-
-
-
-
-
-      });
-
-  };
+};

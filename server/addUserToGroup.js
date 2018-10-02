@@ -34,8 +34,6 @@ function functionThree(res, tempPerson, result, db){
   } else {
     res.send({'Username':tempPerson.name, 'success':true});
   }
-
-
 }
 
 

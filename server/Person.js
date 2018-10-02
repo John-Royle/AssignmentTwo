@@ -43,10 +43,10 @@ module.exports = class Person {
     db.collection("Users").findOneAndUpdate({name: this.name},{$set: {name: this.name, passw: this.passw, groups: this.groups, userType: this.userType, channels: this.channels}},{upsert: true},function(err, result){
       if (err) {
         console.log(err)
-        callback(res, person, err);
+        callback(res, person, err, db);
       }
       console.log(result);
-      callback(res, person, null);
+      callback(res, person, null, db);
     })
   }
 
@@ -164,7 +164,9 @@ module.exports = class Person {
    * Parameter: newType: The number of the new type I wish a user to have (super user etc).
   */
   changeUserType(newType) {
-    this.userType = newType;
+    if (this.userType != 2) {
+      this.userType = newType;
+    }
   }
 
   save(fs) {

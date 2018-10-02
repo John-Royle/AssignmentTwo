@@ -1,6 +1,23 @@
 const person = require('./Person.js');
-const {StringDecoder} = require('string_decoder');
 
+function functionOne(res, tempPerson, result, db) {
+  if (result == null) {
+    res.send({'Username':"Not Found", 'success':false});
+  } else {
+    tempPerson.addChannel(tempPerson.channelToAdd);
+    tempPerson.saveToDB(db, res, functionTwo, tempPerson);
+  }
+}
+
+function functionTwo(res, tempPerson, err) {
+
+  if (err != null) {
+    res.send({'Username':"Not Saved", 'success':false});
+  } else {
+    res.send({'Username':tempPerson.name, 'success':true});
+  }
+
+}
 
 module.exports = function(app,fs, db){
 
@@ -9,24 +26,15 @@ module.exports = function(app,fs, db){
    * Parameter: channelname: The channel that I wish to add to the user.
   */
   app.get('/server/addUserToChannel', (req, res) => {
-    const decoder = new StringDecoder('utf8');
-    var isUser =0;
-    var userObj;
+
 
     var uname = req.query.username
     var channel = req.query.channelname;
-    console.log("Channel got called")
 
     let tempPerson = new person(null)
-    tempPerson.loadFromDB(uname,db)
-    if (tempPerson.name == null) {
-      res.send({'username':uname, 'success':false});
-    } else {
-      if (tempPerson.addChannel(channel)) {
-        tempPerson.saveToDB(db);
-      }
-      res.send({'username':uname, 'success':true});
-    }
+    tempPerson.channelToAdd = channel;
+    tempPerson.loadFromDB(uname, db, res, functionOne, tempPerson)
+
 
   });
 };
