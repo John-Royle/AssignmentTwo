@@ -18,6 +18,26 @@ module.exports = class GroupClass {
 
   }
 
+  deleteFromDB(db, res, callback, group){
+    let query = {id: this.name};
+    //console.log("Callback time");
+    db.collection("Groups").deleteOne(query,function(err, result){
+      //console.log("Callback time");
+      //console.log(result)
+      if (err) {
+        console.log(err)
+      }
+      //console.log(result);
+      if (result != null) {
+        callback(res, group, result, db);
+
+      } else {
+        callback(res, group, null, db);
+      }
+    });
+
+  }
+
   /* Takes in a json object created from a file bearing the name of the object. Takes the objects from that json object and applies it to itself.
    * Parameter: save: The json replresentation of this class.
   */
@@ -58,7 +78,7 @@ module.exports = class GroupClass {
         if (err) {
           console.log(err)
         }
-        //console.log(result.name);
+        console.log(result);
         if (result != null) {
           //this.name = result.name;
           set(result);

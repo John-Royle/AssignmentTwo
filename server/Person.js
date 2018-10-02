@@ -59,9 +59,28 @@ module.exports = class Person {
     this.channels = result.channels;
   }
 
+  deleteFromDB(db, res, callback, tempPerson){
+    let query = {id: this.name};
+    //console.log("Callback time");
+    db.collection("Users").deleteOne(query,function(err, result){
+      //console.log("Callback time");
+      //console.log(result)
+      if (err) {
+        console.log(err)
+      }
+      console.log(result);
+      if (result != null) {
+        callback(res, tempPerson, result, db);
+
+      } else {
+        callback(res, tempPerson, null, db);
+      }
+    });
+
+  }
+
   loadFromDB(name, db, res, callback, tempPerson) {
-    let set = this.setValues.bind(this);
-    console.log("Callback time");
+    //console.log("Callback time");
     db.collection("Users").findOne({name: name}, function(err, result) {
 
         //console.log("Callback time");
@@ -71,7 +90,7 @@ module.exports = class Person {
         //console.log(result);
         if (result != null) {
           //this.name = result.name;
-          set(result);
+          tempPerson.setValues(result);
           //console.log(db);
           console.log("Callback time");
           callback(res, tempPerson, result, db);

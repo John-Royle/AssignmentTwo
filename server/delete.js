@@ -1,37 +1,35 @@
 const person = require('./Person.js')
 
-module.exports = function(app,fs){
+function functionOne(res, tempPerson, result, db){
+  if (result == null) {
+    res.send({'username':"Not Found", 'success':false});
+  } else {
+    console.log("Hi prior to delete")
+    tempPerson.deleteFromDB(db, res, functionTwo, tempPerson);
+  }
+}
+
+function functionTwo(res, person, err, db){
+  console.log("Got to Function Three");
+  if (err == null) {
+    res.send({'Username':"Not Deleted", 'success':false});
+  } else {
+    res.send({'Username':"Deleted", 'success':true});
+  }
+}
+
+module.exports = function(app,fs, db){
 
 
   /* Deletes a user from the Person object.
    * Parameter: username: The user that I wish to delete from the Person object.
   */
   app.get('/server/delete', (req, res) => {
-    var isUser =0;
-    var userObj;
+
 
     var uname = req.query.username;
-    var deleteFile = '';
-    var exists = false;
-    fs.readdir('./server/users/', (err, files)=> {
-      files.forEach(file=> {
-            console.log(file.toString()  + uname)
-        if (file.toString() == uname) {
-          exists = true;
-          deleteFile = file;
-
-        }
-      })
-      if (exists) {
-        res.send({'username':uname, 'success':true});
-        fs.unlink('./server/users/'+deleteFile,(err) => {
-          if(err){
-            console.log(err);
-          }
-        });
-
-      }
-    })
+    let tempPerson = new person(null);
+    tempPerson.loadFromDB(uname, db, res, functionOne, tempPerson);
 
   });
 
