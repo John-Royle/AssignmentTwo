@@ -1,25 +1,43 @@
 const person = require('./Person.js');
-const {StringDecoder} = require('string_decoder');
+const groupClass = require('./GroupClass.js');
 
-/*functionOne(){
-  //user loaded
-  Person.loadFromDB();
-  //load griup
-  loadFromDB()
-  //return if user dfoesnt exist
+const functionOne = function (res, tempPerson, result, db){
+
+  if (result == null) {
+    res.send({'username':"Not Found", 'success':false});
+  } else {
+    //console.log("Got to Function One");
+  let group = new groupClass(null);
+  group.personTemp = tempPerson;
+  group.loadFromDB(tempPerson.groupTemp, db, group, functionTwo, res)
+  //console.log(group);
+  //console.log(group.personTemp);
+  }
 }
 
 
-functionTwo(){
-  //goup loaded
-  //check if group exists then add usert to group and save
-  //return if group doesnt exist
-}
-functionThree(){
-  //saved to db
-  //return ifsuccessful
-}*/
+function functionTwo(res, group, result, db){
+  if (result == null) {
+    res.send({'group':"Not Found", 'success':false});
+  } else {
 
+  group.personTemp.addToGroup(group.name);
+  group.personTemp.saveToDB(db, res, functionThree, group.personTemp);
+  }
+}
+
+
+function functionThree(res, tempPerson, result, db){
+  console.log("Got to Function Three");
+
+  if (result != null) {
+    res.send({'Username':"Not Saved", 'success':false});
+  } else {
+    res.send({'Username':tempPerson.name, 'success':true});
+  }
+
+
+}
 
 
 module.exports = function(app,fs, db){
@@ -30,74 +48,47 @@ module.exports = function(app,fs, db){
   */
 
   app.get('/server/addUserToGroup', (req, res) => {
-  /*  const decoder = new StringDecoder('utf8');
-
+    console.log("Got to Add User");
     var uname = req.query.username
     var group = req.query.group;
 
-    let Person = new person(0, uname, passw, group)
 
-    let tempFunction = (res, person, result, db, group) => {
+    let Person = new person(null);
+    Person.groupTemp = group;
 
-      //2
+    Person.loadFromDB(uname, db, res, functionOne, Person)
 
-      let tempFunction2 = (res, person, result) => {
-        if (result != null) {
-          res.send({'group':group,'success':false});
-        } else {
-
-          res.send({'group':group, 'success':true});
-        }
-
-        group.loadFromDB(uname, db, res, callback, tempPerson);
-    }
-
-      //3
-      let tempFunction3 = (res, person, result) => {
-      person.saveToDB(db, res, tempFunction2, person);
-
-    }
-
-    //1
-    Person.loadFromDB();
-    let tempFunction1 = (res, person, result) => {
-      if (result != null) {
-        res.send({'username':uname,'success':false});
+  });
+    //let tempPerson = new person(null)
+    //let tempFunction = (res, person, result,db) => {
+      //tempPerson.loadFromDB(uname, db, res, callback, tempPerson)
+      //tempPerson.loadFromDB(uname, db, tempPerson)
+      //console.log(tempPerson)
+      // res.send({'username':uname, 'success':true});
+/*
+      console.log(tempPerson);
+      if (tempPerson.name == null) {
+        res.send({'username':uname, 'success':false});
       } else {
-
         res.send({'username':uname, 'success':true});
       }
-    }*/
+      */
+    //}
 
-      });
 
 /*
-app.get('/server/makeSuper', (req, res) => {
-
-  var uname = req.query.username;
-
-
-  let tempFunction = (res, person, result, db) => {
-    person.changeUserType(2);
-    console.log(db);
-
-    let tempFunction2 = (res, person, result) => {
-      if (result != null) {
-        res.send({'username':uname,'success':false});
-      } else {
-
-        res.send({'username':uname, 'success':true});
+    if (tempPerson.name == null) {
+      res.send({'username':uname, 'success':false});
+    } else {
+      if (tempPerson.addChannel(channel)) {
+        tempPerson.saveToDB(db);
       }
+      res.send({'username':uname, 'success':true});
     }
-
-    person.saveToDB(db, res, tempFunction2, person);
-
-  }
-
-  let tempPerson = new person(null)
-  tempPerson.loadFromDB(uname, db, res, tempFunction, tempPerson)
-
-    });
     */
+
+    //Person.saveToDB(db, res, tempFunction, Group);
+
+
 
   };

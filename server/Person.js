@@ -61,18 +61,23 @@ module.exports = class Person {
 
   loadFromDB(name, db, res, callback, tempPerson) {
     let set = this.setValues.bind(this);
+    console.log("Callback time");
     db.collection("Users").findOne({name: name}, function(err, result) {
 
+        //console.log("Callback time");
         if (err) {
           console.log(err)
         }
-        //console.log(result.name);
+        //console.log(result);
         if (result != null) {
           //this.name = result.name;
           set(result);
-          console.log(db);
+          //console.log(db);
+          console.log("Callback time");
           callback(res, tempPerson, result, db);
 
+        } else {
+          callback(res, tempPerson, null, db);
         }
       });
 

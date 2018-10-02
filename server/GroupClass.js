@@ -52,7 +52,7 @@ module.exports = class GroupClass {
     this.admins = result.admins;
   }
 
-  loadFromDB(name, db, group, callback) {
+  loadFromDB(name, db, group, callback,res ) {
     let set = this.setValues.bind(this);
     db.collection("Groups").findOne({name: name}, function(err, result){
         if (err) {
@@ -63,6 +63,8 @@ module.exports = class GroupClass {
           //this.name = result.name;
           set(result);
           callback(res, group, result, db);
+        } else {
+          callback(res, group, null, db);
         }
       });
 
