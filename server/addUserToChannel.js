@@ -16,7 +16,13 @@ function afterLoadFromDB(res, tempPerson, result, db) {
   }
 }
 
-function afterSaveToDB(res, tempPerson, err) {
+/* Finalises the save and returns either a postive or negative result.
+ * Parameter: res: Return function for sending the results back to the client.
+ * Parameter: tempPerson: The person that has just been loaded.
+ * Parameter: err: Will be null if no errors.
+ * Parameter: db: Acces to the database.
+*/
+function afterSaveToDB(res, tempPerson, err, db) {
 
   if (err != null) {
     res.send({'Username':"Not Saved", 'success':false});

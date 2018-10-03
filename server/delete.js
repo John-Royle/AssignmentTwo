@@ -15,6 +15,12 @@ function functionOne(res, tempPerson, result, db){
   }
 }
 
+/* Finalises the save and returns either a postive or negative result.
+ * Parameter: res: Return function for sending the results back to the client.
+ * Parameter: person: The person that has just been loaded.
+ * Parameter: err: Will be null if no errors..
+ * Parameter: db: Acces to the database.
+*/
 function functionTwo(res, person, err, db){
   console.log("Got to Function Three");
   if (err == null) {

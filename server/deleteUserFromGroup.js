@@ -1,6 +1,12 @@
 const person = require('./Person.js');
 const {StringDecoder} = require('string_decoder');
 
+/* Callback function from after loading the person from the database.
+ * Parameter: res: Return function for sending the results back to the client.
+ * Parameter: tempPerson: The person that has just been loaded.
+ * Parameter: result: The result from the database. Null if not able to be found
+ * Parameter: db: Acces to the database.
+*/
 function functionOne(res, tempPerson, result, db) {
   if (result == null) {
       res.send({'username':"Not Found", 'success':false});
@@ -11,6 +17,12 @@ function functionOne(res, tempPerson, result, db) {
 
 }
 
+/* Finalises the save and returns either a postive or negative result.
+ * Parameter: res: Return function for sending the results back to the client.
+ * Parameter: person: The person that has just been loaded.
+ * Parameter: err: Will be null if no errors.
+ * Parameter: db: Acces to the database.
+*/
 function functionTwo(res, person, err, db) {
 
   if (err != null){

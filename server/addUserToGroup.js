@@ -1,6 +1,12 @@
 const person = require('./Person.js');
 const groupClass = require('./GroupClass.js');
 
+/* Callback function from after loading the person from the database.
+ * Parameter: res: Return function for sending the results back to the client.
+ * Parameter: tempPerson: The person that has just been loaded.
+ * Parameter: result: The result from the database. Null if not able to be found
+ * Parameter: db: Acces to the database.
+*/
 const functionOne = function (res, tempPerson, result, db){
 
   if (result == null) {
@@ -15,7 +21,12 @@ const functionOne = function (res, tempPerson, result, db){
   }
 }
 
-
+/* Callback to complete add to group functionality.
+ * Parameter: res: Return function for sending the results back to the client.
+ * Parameter: group: The group that has just been loaded.
+ * Parameter: result: Will be null if no errors.
+ * Parameter: db: Acces to the database.
+*/
 function functionTwo(res, group, result, db){
   if (result == null) {
     res.send({'group':"Not Found", 'success':false});
@@ -26,7 +37,12 @@ function functionTwo(res, group, result, db){
   }
 }
 
-
+/* Finalises the save and returns either a postive or negative result.
+ * Parameter: res: Return function for sending the results back to the client.
+ * Parameter: tempPerson: The person that has just been loaded.
+ * Parameter: result: Will be null if no errors..
+ * Parameter: db: Acces to the database.
+*/
 function functionThree(res, tempPerson, result, db){
   console.log("Got to Function Three");
   if (result != null) {
@@ -56,36 +72,6 @@ module.exports = function(app,fs, db){
     Person.loadFromDB(uname, db, res, functionOne, Person)
 
   });
-    //let tempPerson = new person(null)
-    //let tempFunction = (res, person, result,db) => {
-      //tempPerson.loadFromDB(uname, db, res, callback, tempPerson)
-      //tempPerson.loadFromDB(uname, db, tempPerson)
-      //console.log(tempPerson)
-      // res.send({'username':uname, 'success':true});
-/*
-      console.log(tempPerson);
-      if (tempPerson.name == null) {
-        res.send({'username':uname, 'success':false});
-      } else {
-        res.send({'username':uname, 'success':true});
-      }
-      */
-    //}
-
-
-/*
-    if (tempPerson.name == null) {
-      res.send({'username':uname, 'success':false});
-    } else {
-      if (tempPerson.addChannel(channel)) {
-        tempPerson.saveToDB(db);
-      }
-      res.send({'username':uname, 'success':true});
-    }
-    */
-
-    //Person.saveToDB(db, res, tempFunction, Group);
-
 
 
   };

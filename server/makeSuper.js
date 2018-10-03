@@ -33,28 +33,5 @@ module.exports = function(app,fs, db){
 
       });
 
-      /*
-      app.get('/server/register', (req, res) => {
-        var uname = req.query.username;
-        var passw = req.query.password;
-        var group = req.query.group;
-
-        var exists = false;
-        let Person = new person(0, uname, passw, group)
-        console.log(Person)
-        let tempFunction = (res, person, result) => {
-          console.log(result);
-          if (result != null) {
-            res.send({'username':uname,'success':false});
-          } else {
-
-            res.send({'username':uname, 'success':true});
-          }
-        }
-        Person.saveToDB(db, res, tempFunction, Person);
-
-
-      });
-      */
 
   };

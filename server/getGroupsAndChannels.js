@@ -2,6 +2,13 @@ const person = require('./Person.js');
 const groupClass = require('./GroupClass.js');
 const {StringDecoder} = require('string_decoder');
 
+/* Ensures the person exists in the database and has subscribed to at least One
+ * group before beginning the recursive loop to compare its channels with groups.
+ * Parameter: res: Return function for sending the results back to the client.
+ * Parameter: tempPerson: The person that has just been loaded.
+ * Parameter: result: The result from the database. Null if not able to be found
+ * Parameter: db: Acces to the database.
+*/
 function functionPersonLoaded(res, tempPerson, result, db) {
   if (result == null){
     res.send({'username':"Not Found", 'success':false});
@@ -19,6 +26,15 @@ function functionPersonLoaded(res, tempPerson, result, db) {
 
 }
 
+/* Checks to see if the group exists. If it does, it adds all the channels that
+ * the person has subscribed to, to a list. If the person is out of groups it
+ * returns the said list, otherwise it goes and loads the next group from the
+ * array.
+ * Parameter: res: Return function for sending the results back to the client.
+ * Parameter: group: The group that has just been loaded.
+ * Parameter: result: Will be null if no errors..
+ * Parameter: db: Acces to the database.
+*/
 function functionLoadGroup(res, group, result, db) {
   group.tempPerson.currentGroup += 1;
   if (result != null){

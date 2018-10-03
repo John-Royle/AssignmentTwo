@@ -14,7 +14,12 @@ function functionOne(res, group, result, db){
     group.saveToDB(db, res, functionTwo, group);
   }
 }
-
+/* Finalises the save and returns either a postive or negative result.
+ * Parameter: res: Return function for sending the results back to the client.
+ * Parameter: group: The group that has just been loaded.
+ * Parameter: result: Will be null if no errors..
+ * Parameter: db: Acces to the database.
+*/
 function functionTwo(res, group, result, db){
   if (result != null) {
     res.send({'Channel':"Not Saved", 'success':false});
