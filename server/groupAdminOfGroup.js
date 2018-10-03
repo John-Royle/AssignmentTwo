@@ -32,7 +32,12 @@ function functionTwo(res, group, result, db){
   }
 }
 
-
+/* Adds the user to Admin user.
+ * Parameter: res: Return function for sending the results back to the client.
+ * Parameter: tempPerson: The person that has just been loaded.
+ * Parameter: result: Will be null if no errors..
+ * Parameter: db: Acces to the database.
+*/
 function functionThree(res, tempPerson, result, db){
   console.log("Got to Function Three");
   if (result != null) {
@@ -43,6 +48,11 @@ function functionThree(res, tempPerson, result, db){
   }
 }
 
+/* Adds the user to Admin user.
+ * Parameter: res: Return function for sending the results back to the client.
+ * Parameter: group: The group that has just been loaded.
+ * Parameter: err: Will be null if no errors.
+*/
 function functionFour(res, group, err) {
 
   if (err != null) {

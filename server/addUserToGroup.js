@@ -15,7 +15,7 @@ const functionOne = function (res, tempPerson, result, db){
     //console.log("Got to Function One");
   let group = new groupClass(null);
   group.personTemp = tempPerson;
-  group.loadFromDB(tempPerson.groupTemp, db, group, functionTwo, res)
+  group.loadFromDB(tempPerson.groupTemp, db, group, addToGroup, res)
   //console.log(group);
   //console.log(group.personTemp);
   }
@@ -27,13 +27,13 @@ const functionOne = function (res, tempPerson, result, db){
  * Parameter: result: Will be null if no errors.
  * Parameter: db: Acces to the database.
 */
-function functionTwo(res, group, result, db){
+function addToGroup(res, group, result, db){
   if (result == null) {
     res.send({'group':"Not Found", 'success':false});
   } else {
 
   group.personTemp.addToGroup(group.name);
-  group.personTemp.saveToDB(db, res, functionThree, group.personTemp);
+  group.personTemp.saveToDB(db, res, afterSaveToDB, group.personTemp);
   }
 }
 
@@ -43,7 +43,7 @@ function functionTwo(res, group, result, db){
  * Parameter: result: Will be null if no errors..
  * Parameter: db: Acces to the database.
 */
-function functionThree(res, tempPerson, result, db){
+function afterSaveToDB(res, tempPerson, result, db){
   console.log("Got to Function Three");
   if (result != null) {
     res.send({'Username':"Not Saved", 'success':false});
