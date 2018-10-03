@@ -1,9 +1,11 @@
 const person = require('./Person.js');
 const {StringDecoder} = require('string_decoder');
 
-/* Deletes a user from a channel in the Person object.
- * Parameter: username: The user that I wish to delete from a group.
- * Parameter: channelname: The channel that I wish deny access to the specified user.
+/* Callback function from after loading the person from the database.
+ * Parameter: res: Return function for sending the results back to the client.
+ * Parameter: tempPerson: The person that has just been loaded.
+ * Parameter: result: The result from the database. Null if not able to be found
+ * Parameter: db: Acces to the database.
 */
 
 function functionOne(res, tempPerson, result, db) {

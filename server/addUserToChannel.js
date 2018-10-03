@@ -1,15 +1,22 @@
 const person = require('./Person.js');
 
-function functionOne(res, tempPerson, result, db) {
+
+/* Callback function from after loading the person from the database.
+ * Parameter: res: Return function for sending the results back to the client.
+ * Parameter: tempPerson: The person that has just been loaded.
+ * Parameter: result: The result from the database. Null if not able to be found
+ * Parameter: db: Acces to the database.
+*/
+function afterLoadFromDB(res, tempPerson, result, db) {
   if (result == null) {
     res.send({'Username':"Not Found", 'success':false});
   } else {
     tempPerson.addChannel(tempPerson.channelToAdd);
-    tempPerson.saveToDB(db, res, functionTwo, tempPerson);
+    tempPerson.saveToDB(db, res, afterSaveToDB, tempPerson);
   }
 }
 
-function functionTwo(res, tempPerson, err) {
+function afterSaveToDB(res, tempPerson, err) {
 
   if (err != null) {
     res.send({'Username':"Not Saved", 'success':false});
@@ -33,7 +40,7 @@ module.exports = function(app,fs, db){
 
     let tempPerson = new person(null)
     tempPerson.channelToAdd = channel;
-    tempPerson.loadFromDB(uname, db, res, functionOne, tempPerson)
+    tempPerson.loadFromDB(uname, db, res, afterLoadFromDB, tempPerson)
 
 
   });

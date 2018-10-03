@@ -1,5 +1,11 @@
 const groupClass = require('./GroupClass.js');
 
+/* Callback function from after loading the person from the database.
+ * Parameter: res: Return function for sending the results back to the client.
+ * Parameter: group: The group that has just been loaded.
+ * Parameter: result: The result from the database. Null if not able to be found
+ * Parameter: db: Acces to the database.
+*/
 function functionOne(res, group, result, db){
   if (result == null) {
     res.send({'Group':"Not Found", 'success':false});
