@@ -5,30 +5,41 @@ const {StringDecoder} = require('string_decoder');
  * Parameter: username: The user that I wish to delete from a group.
  * Parameter: channelname: The channel that I wish deny access to the specified user.
 */
-module.exports = function(app,fs){
+
+function functionOne(res, tempPerson, result, db) {
+  if (result == null) {
+    res.send({'username':"Not Found", 'success':false});
+  } else {
+    tempPerson.deleteChannel(tempPerson.channelName);
+    tempPerson.saveToDB(db, res, functionTwo, tempPerson);
+  }
+
+}
+
+function functionTwo(res, person, err, db) {
+  if (err == null){
+    res.send({'username':"Removed channel", 'success':true});
+  } else {
+    res.send({'username':"Unable to save", 'success':false});
+  }
+}
+
+
+
+module.exports = function(app,fs, db){
 
   app.get('/server/deleteUserFromChannel', (req, res) => {
-    const decoder = new StringDecoder('utf8');
-    var isUser =0;
-    var userObj;
+
 
     var uname = req.query.username
     var channel = req.query.channelname;
-    console.log("Channel got called")
 
-        fs.readFile('./server/users/' + uname, (err, data) => {
-          if (err) {
-            res.send({'username':uname, 'success':false});
-          } else {
-            let tempPerson = new person(null)
-            tempPerson.loadFromFile(JSON.parse(decoder.write(data)));
-            if (tempPerson.deleteChannel(channel)) {
-              tempPerson.save(fs);
-            }
+    let tempPerson = new person(null)
+    tempPerson.channelName = channel;
 
-            };
-          res.send({'username':uname, 'success':true});
-        });
+    tempPerson.loadFromDB(uname, db, res, functionOne, tempPerson);
+
+
 
 
 

@@ -1188,12 +1188,17 @@ var SelectroomComponent = /** @class */ (function () {
             .then(function (response) { return response.json(); })
             .then(function (myJson) {
             var data = [];
-            for (var i = 0; i < myJson.success.groups.length; i++) {
-                var group = { "Name": myJson.success.groups[i].GroupName, "Channels": [] };
-                for (var j = 0; j < myJson.success.groups[i].channels.length; j++) {
-                    group.Channels.push(myJson.success.groups[i].channels[j]);
+            if (myJson.success.groups == null) {
+                data.push("This user is not in any group");
+            }
+            else {
+                for (var i = 0; i < myJson.success.groups.length; i++) {
+                    var group = { "Name": myJson.success.groups[i].GroupName, "Channels": [] };
+                    for (var j = 0; j < myJson.success.groups[i].channels.length; j++) {
+                        group.Channels.push(myJson.success.groups[i].channels[j]);
+                    }
+                    data.push(group);
                 }
-                data.push(group);
             }
             set(data);
         });

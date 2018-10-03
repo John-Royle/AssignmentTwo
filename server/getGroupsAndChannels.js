@@ -2,8 +2,41 @@ const person = require('./Person.js');
 const groupClass = require('./GroupClass.js');
 const {StringDecoder} = require('string_decoder');
 
+function functionPersonLoaded(res, tempPerson, result, db) {
+  if (result == null){
+    res.send({'username':"Not Found", 'success':false});
+  } else {
+    if (tempPerson.groups.length == 0){
+      res.send({'username':"No groups Found", 'success':false});
+    } else {
+      tempPerson.currentGroup = 0;
+      let group = new groupClass(null);
+      group.tempPerson = tempPerson;
+      tempPerson.tempGroup = group;
+      group.loadFromDB(tempPerson.groups[tempPerson.currentGroup], db, group, functionLoadGroup,res );
+    }
+  }
 
-module.exports = function(app,fs){
+}
+
+function functionLoadGroup(res, group, result, db) {
+  group.tempPerson.currentGroup += 1;
+  if (result != null){
+    functionRecursion(group.tempPerson,group)
+  }
+
+  if (group.tempPerson.currentGroup === group.tempPerson.groups.length) {
+      res.send({'username':"All possible channels", 'success':group.tempPerson.toReturn});
+  } else {
+    group.loadFromDB(group.tempPerson.groups[group.tempPerson.currentGroup], db, group, functionLoadGroup,res );
+  }
+}
+
+function functionRecursion(person, group) {
+  person.toReturn.groups.push(person.checkAllowedChannels(group));
+}
+
+module.exports = function(app,fs, db){
 
   /* Gets a list of groups and channels that a user has access to.
    * Parameter: username: The user of the groups and channels that I wish to display.
@@ -16,22 +49,9 @@ module.exports = function(app,fs){
 
     var uname = req.query.username;
     let toReturn = {"groups":[]};
-
-        fs.readFile('./server/users/' + uname, (err, data) => {
-          if (err) {
-            res.send({'username':uname, 'success':false});
-          } else {
-            let tempPerson = new person(null)
-            tempPerson.loadFromFile(JSON.parse(decoder.write(data)));
-            for (let i = 0; i < tempPerson.groups.length; i++) {
-              let groupName = tempPerson.groups[i]
-              let group = new groupClass(null);
-              group.loadFromFile(JSON.parse(decoder.write(fs.readFileSync('./server/groups/' + groupName))));
-              toReturn.groups.push(tempPerson.checkAllowedChannels(group));
-            }
-            };
-          res.send({'username':uname, 'success':toReturn});
-        });
+    let tempPerson = new person(null)
+    tempPerson.toReturn = toReturn;
+    tempPerson.loadFromDB(uname, db, res, functionPersonLoaded, tempPerson);
 
 
 

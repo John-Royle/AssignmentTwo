@@ -19,7 +19,7 @@ module.exports = class GroupClass {
   }
 
   deleteFromDB(db, res, callback, group){
-    let query = {id: this.name};
+    let query = {name: this.name};
     //console.log("Callback time");
     db.collection("Groups").deleteOne(query,function(err, result){
       //console.log("Callback time");
@@ -29,8 +29,11 @@ module.exports = class GroupClass {
       }
       //console.log(result);
       if (result != null) {
-        callback(res, group, result, db);
-
+        if (result.result.n > 0) {
+          callback(res, group, result, db);
+        } else {
+          callback(res, group, null, db);
+        }
       } else {
         callback(res, group, null, db);
       }

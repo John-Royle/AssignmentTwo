@@ -60,7 +60,8 @@ module.exports = class Person {
   }
 
   deleteFromDB(db, res, callback, tempPerson){
-    let query = {id: this.name};
+    let query = {name: this.name};
+    //console.log(this.name);
     //console.log("Callback time");
     db.collection("Users").deleteOne(query,function(err, result){
       //console.log("Callback time");
@@ -68,10 +69,15 @@ module.exports = class Person {
       if (err) {
         console.log(err)
       }
-      console.log(result);
+      //console.log(result);
       if (result != null) {
-        callback(res, tempPerson, result, db);
+        //console.log(result.result.n);
+        if (result.result.n > 0) {
+          callback(res, tempPerson, result, db);
+        } else {
 
+          callback(res, tempPerson, null, db);
+        }
       } else {
         callback(res, tempPerson, null, db);
       }

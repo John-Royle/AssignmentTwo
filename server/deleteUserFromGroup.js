@@ -1,8 +1,29 @@
 const person = require('./Person.js');
 const {StringDecoder} = require('string_decoder');
 
+function functionOne(res, tempPerson, result, db) {
+  if (result == null) {
+      res.send({'username':"Not Found", 'success':false});
+  } else {
+    tempPerson.deleteFromGroup(tempPerson.groupName);
+    tempPerson.saveToDB(db, res, functionTwo, tempPerson);
+  }
 
-module.exports = function(app,fs){
+}
+
+function functionTwo(res, person, err, db) {
+
+  if (err != null){
+    res.send({'username':"Not able to save", 'success':false});
+  } else {
+    res.send({'username':"Removed from group", 'success':true});
+  }
+}
+
+
+
+
+module.exports = function(app,fs,db){
 
 
   /* Removes access to the Group of a specified user.
@@ -18,30 +39,9 @@ module.exports = function(app,fs){
     var uname = req.query.username;
     var group = req.query.group;
 
-
-        fs.readFile('./server/users/' + uname, (err, data) => {
-          if (err) {
-            res.send({'username':uname, 'success':false});
-          } else {
-            let tempPerson = new person(null)
-            tempPerson.loadFromFile(JSON.parse(decoder.write(data)));
-            //make sure the group exists
-            fs.readFile('./server/groups/' + group, (err, data) => {
-              if (err){
-                res.send({'group':group, 'success':false});
-              }
-              if (tempPerson.deleteFromGroup(group)) {
-                tempPerson.save(fs);
-                res.send({'username':uname, 'success':true});
-              } else {
-                res.send({'username':uname, 'success':false});
-              }
-            });
-
-            };
-
-        });
-
+    let tempPerson = new person(null)
+    tempPerson.groupName = group;
+    tempPerson.loadFromDB(uname, db, res, functionOne, tempPerson);
 
 
       });

@@ -22,6 +22,9 @@ rooms = [];
       .then(response => {return response.json()})
       .then(myJson => {
         let data = [];
+        if (myJson.success.groups == null){
+          data.push("This user is not in any group")
+        } else {
         for (let i = 0; i < myJson.success.groups.length; i++) {
           let group = {"Name": myJson.success.groups[i].GroupName, "Channels":[]};
 
@@ -31,7 +34,7 @@ rooms = [];
 
           data.push(group);
 
-        }
+        }}
 
         set(data);
       })

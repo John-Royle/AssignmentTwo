@@ -74,11 +74,14 @@ require('./deleteUserFromGroup.js')(app, fs, db);
 require('./socket.js')(app, io, fs, db);
 require('./listen.js')(http);
 
+let tempFunction = () => {
+  console.log("Made Super User again");
+}
 
 const person = require('./Person.js');
-/*let y = new person(0, "super", "super", "all")
+let y = new person(0, "super", "super", "all")
 y.userType = 2;
-y.saveToDB(db)*/
+y.saveToDB(db, null, tempFunction, person)
 /*let x = new person(null);
 x.loadFromDB("super",db);
 

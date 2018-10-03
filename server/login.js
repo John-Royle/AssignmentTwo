@@ -15,7 +15,7 @@ module.exports = function(app,fs, db){
     let tempPerson = new person(null);
 
     let tempFunction = (res, tempPerson, result, db) => {
-
+      console.log(tempPerson);
     if (tempPerson.name == null){
       res.send({'username':uname,'success':false});
     } else {
