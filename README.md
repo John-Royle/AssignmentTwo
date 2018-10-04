@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 # Angular-Labs
 =======
-# Assignment One
+# Assignment Two
 
 ## Git Hub
 
